@@ -1,0 +1,381 @@
+﻿<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="ZH_CN">
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>杭州众兆科技有限公司</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/static/front/media/logos/zz.jpg}" />
+
+    <link th:href="@{/static/front/css/master.css}" rel="stylesheet">
+
+    <!-- 样式文件 -->
+    <link rel="stylesheet" id="switcher-css" type="text/css" th:href="@{/static/front/assets/switcher/css/switcher.css}" media="all" />
+    <link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color1.css}" title="color1" media="all"  />
+    <link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color2.css}" title="color2" media="all" />
+    <link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color3.css}" title="color3" media="all" />
+    <link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color4.css}" title="color4" media="all" />
+    <link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color5.css}" title="color5" media="all" data-default-color="true" />
+<style>
+	.anchorBL{display:none}
+</style>
+    <!--[if lt IE 9]>
+    <script th:src="@{/static/front/js/html5shiv.js}"></script>
+    <script th:src="@{/static/front/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="page-preloader"><span class="spinner"></span></div>
+<div th:include="front/quote :: Ccolors"></div>
+<div th:include="front/quote :: header"></div>
+<div th:include="front/quote :: navbar"></div>
+
+<section class="status status--dark dark-bg dark-bg--about">
+	<div class="container wow slideInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
+		<div class="breadcumb">
+			<a href="/" class="breadcumb__page no-decoration">首页</a>
+			<span class="breadcumb__del no-decoration">&raquo;</span>
+			<a href="enterprise.html" class="breadcumb__page no-decoration">企业优势</a>
+		</div>
+		<h2 class="title title--page"><span class="title__bold">众兆</span> 优势</h2>
+	</div>
+</section>
+
+<section class="about-us">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1 col-xs-12">
+				<h1 class=" wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">我们 <span>众兆人</span>
+                    悦于创造，享受品质</h1>
+				<div class="about-us__mission wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+					<div><span class="fa  fa-quote-right"></span></div>
+					<h2>任务目标<span class="line line--title line--center"><span class="line__first"></span><span class="line__second"></span></span></h2>
+				</div>
+				<p class="about-us__text wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">“高品质铸就品牌，广联合开拓未来”是我们众兆人永远的追求，众兆系列产品用料考究，无论从选料到做工，均经过严格的技术检验鉴定，本厂着重“服务教育，奉献社会”的精神，凭借可靠的质量保证和优质售后服务，得到了广大用户的好评与依赖。
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="anons anons--about">
+	<div class="container">
+		<div class="after anons__main">
+			<div class="row">
+				<div class="col-md-4 col-xs-12 wow slideInLeft" data-wow-delay="0.7s" data-wow-duration="2.5s">
+					<div class="anons__block anons__block--center triangle--block line-down triangle">
+						<div class="anons__photo"><img class="img-responsive" th:src="@{/static/front/media/370x200/about1.jpg}" alt="news"></div>
+						<div class="anons__title">
+							<h2><a href="comcase" class="title no-decoration"><span class="title__bold">Who</span>weare</a></h2>
+						</div>
+						<div class="anons__text">
+							<p class="text">汇集了一批专业技术设计精英，购置了大批进口先进设备，多方引进了经验丰富、高水准的高级人才。目地是将客户体验做到最好。</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12 wow slideInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">
+					<div class="anons__block anons__block--center triangle--block line-down triangle">
+						<div class="anons__photo"><img class="img-responsive" th:src="@{/static/front/media/370x200/about2.jpg}" alt="news"></div>
+						<div class="anons__title">
+							<h2><a href="comcase" class="title no-decoration"><span class="title__bold">COM</span>history</a></h2>
+						</div>
+						<div class="anons__text">
+							<p class="text"> 公司成立于2010年，经过多年的艰苦创业与创新开拓，已形成集开发设计、研制生产、销售服务为一体的国家级现代化企业。</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12 wow slideInLeft" data-wow-delay="0.7s">
+					<div class="anons__block anons__block--center triangle--block line-down triangle">
+						<div class="anons__photo"><img class="img-responsive" th:src="@{/static/front/media/370x200/about3.jpg}" alt="news"></div>
+						<div class="anons__title">
+							<h2><a href="comcase" class="title no-decoration"><span class="title__bold">WHY</span>joinus</a></h2>
+						</div>
+						<div class="anons__text">
+							<p class="text">技术水平领先和售后服务优良等特点畅销全国各大专院校并出口意大利、德国、古巴、泰国、新加坡、朝鲜、斯里兰卡等国家和地区。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--数据统计-->
+<div class="numbers">
+	<div class="container">
+		<div class="clearfix percent-blocks" data-waypoint-scroll="true">
+			<div class="numbers__one">
+				<header class="numbers__head">
+					<span class="fa fa-building"></span>
+					<div class="line line--slim line--title"><div class="line__first"></div><div class="line__second"></div></div>
+				</header>
+				<div class="numbers__body chart" data-percent="25">
+					<div class="numbers__num percent">25</div>
+					<div class="number__desc">商品种类</div>
+				</div>
+			</div>
+			<div class="numbers__one">
+				<header class="numbers__head">
+					<span class="fa fa-motorcycle"></span>
+					<div class="line line--slim line--title"><div class="line__first"></div><div class="line__second"></div></div>
+				</header>
+				<div class="numbers__body chart" data-percent="5000">
+					<div class="numbers__num percent">5000</div>
+					<div class="number__desc">累计出售</div>
+				</div>
+			</div>
+			<div class="numbers__one">
+				<header class="numbers__head">
+					<span class="fa fa-cog"></span>
+					<div class="line line--slim line--title"><div class="line__first"></div><div class="line__second"></div></div>
+				</header>
+				<div class="numbers__body chart" data-percent="1258">
+					<div class="numbers__num percent">1258</div>
+					<div class="number__desc">企业会员</div>
+				</div>
+			</div>
+			<div class="numbers__one">
+				<header class="numbers__head">
+					<span class="fa fa-tachometer"></span>
+					<div class="line line--slim line--title"><div class="line__first"></div><div class="line__second"></div></div>
+				</header>
+				<div class="numbers__body chart" data-percent="6000">
+					<div class="numbers__num percent">6000</div>
+					<div class="number__desc">合作伙伴</div>
+				</div>
+			</div>
+			<div class="numbers__one">
+				<header class="numbers__head">
+					<span class="fa fa-road"></span>
+					<div class="line line--slim line--title"><div class="line__first"></div><div class="line__second"></div></div>
+				</header>
+				<div class="numbers__body chart" data-percent="10000">
+					<div class="numbers__num percent">10000</div>
+					<div class="number__desc">累计服务</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<section class="contacts">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-7 wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">
+				<div class="contacts-find">
+					<h3 class="blog-title">企业地图<span class="line line--title line--blog-title"><span class="line__first"></span><span class="line__second"></span></span></h3>
+
+					<div class="map">
+						<div style="width:auto;height:490px;font-size:12px" id="map"></div>
+					</div>
+					<p class="blog-text blog-text--article"> 杭州众兆科技有限公司是集开发设计、研制生产、销售服务为一体的现代化企业。 公司长期奉行“诚信、
+						敬业、创新”的企业文化和“服务于高教”的经营理念，不断推出高科技产品，拓展市场，实现了企业跨越式发展。经过多年的艰苦创业与创新开拓，
+						已形成包括：汽车教学设备，汽车实验设备，多媒体电教设备.各种发动机实验台架，汽车教学模型,理、化、生、实验室设备</p>
+				</div>
+			</div>
+			<div class="col-xs-5 wow fadeInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
+				<div class="contacts-form">
+					<h3 class="blog-title">给我们留言<span class="line line--title line--blog-title"><span class="line__first"></span><span class="line__second"></span></span></h3>
+					<div id="success"></div>
+					<p class="blog-text blog-text--article">我们会认真查看每一条来自消费者的留言，并依法保证您的权益，请放心填写。 </p>
+					<form id="contactForm" method="POST" class="comment-form">
+						<div class="comment-form__input">
+							<input type="text" class="search-input" name="name" id="user-name" placeholder="姓名" />
+						</div>
+						<div class="comment-form__input">
+							<input type="text" class="search-input" name="email" id="user-email" placeholder="邮箱" />
+						</div>
+						<div class="comment-form__input">
+							<input type="text" class="search-input" name="website" id="user-website" placeholder="电话" />
+						</div>
+						<div class="comment-form__input">
+							<textarea id="user-message" name="message" placeholder="留言内容" class="comment-textarea search-input"></textarea>
+						</div>
+						<button type="submit" class="btn button button--main button--grey transparent">留言</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="social-blocks social-blocks--contacts">
+			<div class="row row--no-padding">
+				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="3s">
+					<div class="social-blocks__one social-blocks__one--fb">
+						<a href="#" class="social-blocks__logo">
+							<span class="fa fa-qq"></span>
+						</a>
+						<a href="#" class="social-blocks__action no-decoration"><在线咨></在线咨>询</a>
+					</div>
+				</div>
+				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="2s">
+					<div class="social-blocks__one social-blocks__one--twitter">
+						<a href="#" class="social-blocks__logo">
+							<span class="fa fa-envelope"></span>
+						</a>
+						<a href="#" class="social-blocks__action no-decoration">发送邮件</a>
+					</div>
+				</div>
+				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1s">
+					<div class="social-blocks__one social-blocks__one--google">
+						<a href="#" class="social-blocks__logo">
+							<span class="fa fa-comments"></span>
+						</a>
+						<a href="#" class="social-blocks__action no-decoration">微信</a>
+					</div>
+				</div>
+				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1s">
+					<div class="social-blocks__one social-blocks__one--vimeo">
+						<a href="#" class="social-blocks__logo">
+							<span class="fa fa-phone"></span>
+						</a>
+						<a href="#" class="social-blocks__action no-decoration">电话</a>
+					</div>
+				</div>
+				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="2s">
+					<div class="social-blocks__one social-blocks__one--rss">
+						<a href="#" class="social-blocks__logo">
+							<span class="fa fa-rss"></span>
+						</a>
+						<a href="#" class="social-blocks__action no-decoration">博客</a>
+					</div>
+				</div>
+				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="3s">
+					<div class="social-blocks__one social-blocks__one--p">
+						<a href="#" class="social-blocks__logo">
+							<span class="fa fa-heart-o"></span>
+						</a>
+						<a href="#" class="social-blocks__action no-decoration">收藏众兆</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!--contacts-->
+
+<section class="team">
+	<div class="container">
+		<h2 class="title title--main wow slideInRight" data-wow-delay="0.7s" data-wow-duration="1.5s"><span class="title__bold">优质</span>产品<span class="line line--title"><span class="line__first"></span><span class="line__second"></span></span></h2>
+		<p class="text text--anons wow slideInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">精选优质商品，为您挑选最佳方案。</p>
+		<div class="js-personal-slider enable-owl-carousel" data-auto-play="5000" data-stop-on-hover="true" data-items="2" data-pagination="false" data-navigation="true" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-tablet-small="2" >
+			<div class="slider-item wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" th:each="proSt:${list}" th:if="${proSt.getIntProStar()}>3">
+				<div class="worker triangle line-down triangle--big" >
+					<div class="worker__photo">
+						<img th:src="@{/static/front/media/persons/{img}(img=${proSt.getStrProImage()})}" alt="person" class="img-responsive" />
+					</div>
+					<div class="worker__info">
+						<h2 th:text="${proSt.getStrProName()}"></h2>
+						<p  th:text="'材质:'+${proSt.getStrProMate()}"></p>
+						<div class="item-cell__info clearfix">
+							<div class="item-price pull-right" >星级：
+								<div class="stars pull-right">
+								<span class="star" th:each="i:${#numbers.sequence(1,proSt.getIntProStar())}"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="woker-hidden">
+						<div class="woker-hidden__social">
+							<div class="social social--footer social--footer-home clearfix">
+								<a href="#" class="social__one square">
+									<span class="fa fa-comments"></span>
+								</a>
+								<a href="#" class="social__one square">
+									<span class="fa fa-qq"></span>
+								</a>
+								<a href="#" class="social__one square">
+									<span class="fa fa-phone"></span>
+								</a>
+							</div>
+							<div class="worker__info">
+								<h2 th:text="${proSt.getStrProName()}"></h2>
+								<p  th:text="${proSt.getStrProModle()}"></p>
+								<p >Phone: 15549400212</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=sWY1MXKlEPexD4pGzitUH6nYFrCcrlBq"></script>
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMapOverlay();//向地图添加覆盖物
+    }
+    function createMap(){
+        map = new BMap.Map("map");
+        map.centerAndZoom(new BMap.Point(120.183519,30.412343),19);
+    }
+    function setMapEvent(){
+        map.enableScrollWheelZoom();
+        map.enableKeyboard();
+        map.enableDragging();
+        map.enableDoubleClickZoom()
+    }
+    function addClickHandler(target,window){
+        target.addEventListener("click",function(){
+            target.openInfoWindow(window);
+        });
+    }
+    function addMapOverlay(){
+        var markers = [
+            {content:"我的备注",title:"我们在这",imageOffset: {width:3,height:3},position:{lat:40.079384,lng:116.492986}},
+            {content:"我的备注",title:"我们在这",imageOffset: {width:3,height:3},position:{lat:30.412366,lng:120.18311}}
+        ];
+        for(var index = 0; index < markers.length; index++ ){
+            var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+            var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png}",new BMap.Size(20,25),{
+                    imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+                })});
+            var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(30,5)});
+            var opts = {
+                width: 200,
+                title: markers[index].title,
+                enableMessage: false
+            };
+            var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+            marker.setLabel(label);
+            addClickHandler(marker,infoWindow);
+            map.addOverlay(marker);
+        };
+    }
+    //向地图添加控件
+    function addMapControl(){
+        var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+        scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+        map.addControl(scaleControl);
+        var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+        map.addControl(navControl);
+        var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+        map.addControl(overviewControl);
+    }
+    var map;
+    initMap();
+</script>
+<div th:include="front/quote :: conus"></div>
+<div th:include="front/quote :: consultation"></div>
+<script th:src="@{/static/front/js/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/static/front/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/front/js/modernizr.custom.js}"></script>
+<script th:src="@{/static/front/assets/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/waypoints.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/classie.js}"></script>
+<script th:src="@{/static/front/assets/switcher/js/switcher.js}"></script>
+<script th:src="@{/static/front/assets/owl-carousel/owl.carousel.min.js}"></script>
+<script th:src="@{/static/front/assets/bxslider/jquery.bxslider.min.js}"></script>
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<script th:src="@{/static/front/assets/isotope/isotope.js}"></script>
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<script th:src="@{/static/front/assets/fancybox/jquery.fancybox.pack.js}"></script>
+<script th:src="@{/static/front/js/jquery.smooth-scroll.js}"></script>
+<script th:src="@{/static/front/js/wow.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.placeholder.min.js}"></script>
+<script th:src="@{/static/front/js/theme.js}"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="ZH_CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+	<link rel="icon" type="image/x-icon" th:href="@{/static/front/media/logos/zz.jpg}" />
+
+	<link th:href="@{/static/front/css/master.css}" rel="stylesheet">
+
+	<!-- 样式文件 -->
+	<link rel="stylesheet" id="switcher-css" type="text/css" th:href="@{/static/front/assets/switcher/css/switcher.css}" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color1.css}" title="color1" media="all"  />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color2.css}" title="color2" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color3.css}" title="color3" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color4.css}" title="color4" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color5.css}" title="color5" media="all" data-default-color="true" />
+
+	<!--[if lt IE 9]>
+	<script th:src="@{/static/front/js/html5shiv.js}"></script>
+	<script th:src="@{/static/front/js/respond.min.js}"></script>
+	<![endif]-->
+</head>
+<body>
+<div id="page-preloader"><span class="spinner"></span></div>
+<div th:include="front/quote :: Ccolors"></div>
+<div th:include="front/quote :: header"></div>
+<div th:include="front/quote :: navbar"></div>
+<section class="status status--shop dark-bg dark-bg--shop">
+	<div class="container wow slideInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
+		<div class="breadcumb">
+			<a href="/" class="breadcumb__page no-decoration">首页</a>
+			<span class="breadcumb__del no-decoration">&raquo;</span>
+			<a href="product" class="breadcumb__page no-decoration">售后服务</a>
+		</div>
+		<h2 class="title title--page">请尽量<span class="title__bold">详细</span> 的了解产品的<span class="title__bold">问题</span> </h2>
+	</div>
+</section>
+
+<section class="shop">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1 col-xs-12">
+				<div class="about-us about-us--shop wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+					<h1>我们<span>随时提供</span> 帮助，请联系我们的客服人员，将在最短的时间内给您回复。</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div th:include="front/quote :: conus"></div>
+<div th:include="front/quote :: consultation"></div>
+
+<script th:src="@{/static/front/js/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/static/front/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/front/js/modernizr.custom.js}"></script>
+<!--Counter-->
+<script th:src="@{/static/front/assets/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/waypoints.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/classie.js}"></script>
+<!--Switcher-->
+<script th:src="@{/static/front/assets/switcher/js/switcher.js}"></script>
+<!--Owl Carousel-->
+<script th:src="@{/static/front/assets/owl-carousel/owl.carousel.min.js}"></script>
+<!--bxSlider-->
+<script th:src="@{/static/front/assets/bxslider/jquery.bxslider.min.js}"></script>
+<!-- jQuery UI Slider -->
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<!--Isotope-->
+<script th:src="@{/static/front/assets/isotope/isotope.js}"></script>
+<!--Slider-->
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<!--Fancybox-->
+<script th:src="@{/static/front/assets/fancybox/jquery.fancybox.pack.js}"></script>
+<!--Theme-->
+<script th:src="@{/static/front/js/jquery.smooth-scroll.js}"></script>
+<script th:src="@{/static/front/js/wow.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.placeholder.min.js}"></script>
+<script th:src="@{/static/front/js/theme.js}"></script>
+</body>
+</html>

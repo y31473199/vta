@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="ZH_CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="icon" type="image/x-icon" th:href="@{/static/front/media/logos/zz.jpg}" />
+
+	<link th:href="@{/static/front/css/master.css}" rel="stylesheet">
+
+	<!-- 样式文件 -->
+	<link rel="stylesheet" id="switcher-css" type="text/css" th:href="@{/static/front/assets/switcher/css/switcher.css}" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color1.css}" title="color1" media="all"  />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color2.css}" title="color2" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color3.css}" title="color3" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color4.css}" title="color4" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color5.css}" title="color5" media="all" data-default-color="true" />
+
+	<!--[if lt IE 9]>
+	<script th:src="@{/static/front/js/html5shiv.js}"></script>
+	<script th:src="@{/static/front/js/respond.min.js}"></script>
+	<![endif]-->
+</head>
+<body>
+<div id="page-preloader"><span class="spinner"></span></div>
+<div th:include="front/quote :: Ccolors"></div>
+<div th:include="front/quote :: header"></div>
+<div th:include="front/quote :: navbar"></div>
+
+
+
+<div class="shop-item">
+	<div class="container">
+		<div class="row row--main-shop">
+			<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
+				<aside class="shop-aside">
+					<form class=" wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" action="" method="post">
+						<div class="relative-pos shop-aside__search">
+							<input type="text" name="search" placeholder="Search..." />
+							<button type="submit"><span class="fa fa-search"></span></button>
+						</div>
+					</form>
+					<div class="shop-aside__block wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+						<h2 class="shop-title">产品类别<span class="line line--title line--shop"><span class="line__first"></span><span class="line__second"></span></span></h2>
+						<ul class="triangle-list triangle-list--shop">
+							<li class="triangle triangle-list__one" th:each="type:${types}"><a class="no-decoration" th:href="'product?tyid='+${type.getTy_id()}" th:text="${type.getTy_name()}"></a></li>
+						</ul>
+					</div>
+					<div class="shop-aside__block wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+						<h2 class="shop-title">其他产品<span class="line line--title line--shop"><span class="line__first"></span><span class="line__second"></span></span></h2>
+						<div class="shop-aside__featured">
+							<div class="shop-aside__product clearfix" th:each="proL:${proList}">
+								<div class="pull-right">
+									<img th:src="@{/static/front/media/featured-products/{img}(img=${proL.getStrProImage()})}" alt='product'>
+								</div>
+								<div class="shop-aside__desc">
+									<h4><a class="no-decoration" th:href="'item.html?='+${proL.getIntProId()}" th:text="${proL.getStrProName()}"></a></h4>
+									<div class="item-price" th:text="'￥'+${proL.getBigProMaprice()}"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</aside>
+			</div>
+			<div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
+				<div class="shop-item-main">
+					<div class="row">
+						<div class="col-md-6 col-xs-12">
+							<div class="shop-item-desc">
+								<header class="shop-item-desc__head wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+									<h1 th:text="${pro.getStrProName()}"></h1>
+									<div class="clearfix">
+										<div class="stars pull-left">
+											<span class="star" th:each="i:${#numbers.sequence(1,pro.getIntProStar())}"></span>
+										</div>
+									</div>
+									<div class="item-price item-price--main" th:text="'￥'+${pro.getBigProMaprice()}"></div>
+								</header>
+								<div class="shop-item-desc__body wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+									<p class="blog-text" th:text="${pro.getStrProDesc()}"></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<div class="gallery wow fadeInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
+								<div class="gallery__big">
+									<ul class="js-gall-slider enable-bx-slider" data-auto="true" data-auto-hover="true" data-mode="horizontal" data-pager="true" data-pager-custom=".js-gall-pager" data-prev-selector="null" data-next-selector="null">
+										<li><img class="img-responsive" th:src="@{/static/front/media/product-big/{img}(img=${pro.getStrProImage()})}" alt="product" /></li>
+										<li><img class="img-responsive" th:src="@{/static/front/media/product-big/{img}(img=${pro.getStrProImage()})}" alt="product" /></li>
+									</ul>
+								</div>
+								<div class="gallery__small js-gall-pager">
+									<a data-slide-index="0" href=""><img th:src="@{/static/front/media/product-small/{img}(img=${pro.getStrProImage()})}" alt="product" /></a>
+									<a data-slide-index="1" href=""><img th:src="@{/static/front/media/product-small/{img}(img=${pro.getStrProImage()})}" alt="product" /></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aside-tabs aside-tabs--about aside-tabs--item wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+					<div class="aside-tabs__links">
+						<a href="#" class="no-decoration aside-tabs__active-link js-tab-link" data-for="#desc">产品参数</a>
+					</div>
+					<div class="aside-tabs__blocks about-tab js-tab-block" id="desc">
+						<p th:text="${pro.getStrProPara()}"></p>
+					</div>
+				</div>
+
+				<div>
+					<h2 class="shop-title wow fadeInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">相关产品<span class="line line--title line--shop"><span class="line__first"></span><span class="line__second"></span></span></h2>
+					<div class="row row--items">
+						<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s" th:each="otPro:${otherPro}">
+							<div class="item-cell js-cell equal-height-item">
+								<div class="item-cell__top">
+									<div class="item-cell__img">
+										<img th:src="@{/static/front/media/products/{img}(img=${otPro.getStrProImage()})}" class="img-responsive center-block" alt="item">
+									</div>
+									<div class="item-cell__actions">
+										<a href="#" class="add-to-cart"><span class="fa fa-shopping-cart"></span></a>
+										<a href="#" class="see-detail"><span class="fa fa-search-plus"></span></a>
+									</div>
+								</div>
+								<div class="item-cell__bottom">
+									<h1 class="item-title"><a class="no-decoration" href="item.html" th:text="${otPro.getStrProName()}"></a></h1>
+									<div class="item-cell__info clearfix">
+										<div class="item-price pull-left" th:text="${otPro.getStrProMate()}"></div>
+										<div class="stars pull-right">
+											<span class="star" th:each="i:${#numbers.sequence(1,otPro.getIntProStar())}"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!--shop-item-->
+
+<div th:include="front/quote :: footeri"></div>
+<div th:include="front/quote :: copyright"></div>
+
+<script th:src="@{/static/front/js/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/static/front/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/front/js/modernizr.custom.js}"></script>
+<!--Counter-->
+<script th:src="@{/static/front/assets/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/waypoints.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/classie.js}"></script>
+<!--Switcher-->
+<script th:src="@{/static/front/assets/switcher/js/switcher.js}"></script>
+<!--Owl Carousel-->
+<script th:src="@{/static/front/assets/owl-carousel/owl.carousel.min.js}"></script>
+<!--bxSlider-->
+<script th:src="@{/static/front/assets/bxslider/jquery.bxslider.min.js}"></script>
+<!-- jQuery UI Slider -->
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<!--Isotope-->
+<script th:src="@{/static/front/assets/isotope/isotope.js}"></script>
+<!--Slider-->
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<!--Fancybox-->
+<script th:src="@{/static/front/assets/fancybox/jquery.fancybox.pack.js}"></script>
+<!--Theme-->
+<script th:src="@{/static/front/js/jquery.smooth-scroll.js}"></script>
+<script th:src="@{/static/front/js/wow.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.placeholder.min.js}"></script>
+<script th:src="@{/static/front/js/theme.js}"></script>
+</body>
+</html>

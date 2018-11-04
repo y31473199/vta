@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="ZH_CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>杭州众兆科技有限公司</title>
+	<link rel="icon" type="image/x-icon" th:href="@{/static/front/media/logos/zz.jpg}" />
+
+	<link th:href="@{/static/front/css/master.css}" rel="stylesheet">
+
+	<!-- 样式文件 -->
+	<link rel="stylesheet" id="switcher-css" type="text/css" th:href="@{/static/front/assets/switcher/css/switcher.css}" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/css/style.css}" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color1.css}" title="color1" media="all"  />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color2.css}" title="color2" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color3.css}" title="color3" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color4.css}" title="color4" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color5.css}" title="color5" media="all" data-default-color="true" />
+<style>
+	a{
+		text-decoration: none;
+	}
+</style>
+<!--[if lt IE 9]>
+	<script th:src="@{/static/front/js/html5shiv.js}"></script>
+	<script th:src="@{/static/front/js/respond.min.js}"></script>
+<![endif]-->
+</head>
+<body>
+<div id="page-preloader"><span class="spinner"></span></div>
+<div th:include="front/quote :: Ccolors"></div>
+<div th:include="front/quote :: header"></div>
+<div th:include="front/quote :: navbar"></div>
+<!--轮播图-->
+
+<section class="sliders">
+	<ul class="sliders__main js-slider-main slider enable-bx-slider" data-auto="true" data-auto-hover="true" data-mode="fade" data-pager="false" data-pager-custom="null" data-prev-selector="null" data-next-selector="null" >
+		<li th:each="ads:${listAD}" th:if="${ads.getIntAdState()!=0}">
+			<img th:src="@{/static/front/media/sliders/{img}(img=${ads.getStrAdImage()})}" class="thbshpxktysplmywflo" alt="bxSlider" />
+			<div class="sliders__text">
+				<h2 th:text="${ads.getStrAdRetitle()}"></h2>
+				<h3 th:text="${ads.getStrAdTitle()}"></h3>
+				<p th:text="${ads.getStrAdText()}"></p>
+				<a href="#" class="btn button button--red triangle">了解更多</a>
+			</div>
+		</li>
+	</ul>
+</section>
+
+<!--正文开始-->
+<section class="anons">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-xs-12 wow zoomInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">
+				<div class="anons__block triangle triangle--block line-down">
+					<div class="anons__img">
+						<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 width="50px" height="50px" viewBox="0 0 34.157 34.158" style="enable-background:new 0 0 34.157 34.158;"
+	 xml:space="preserve">
+							<g>
+								<path d="M17.975,25.103v4.603H1.58V3.851h16.395v4.953h1.582V2.519c0-1.252-1.023-2.273-2.273-2.273H2.273
+									C1.021,0.246,0,1.267,0,2.519v29.12c0,1.252,1.021,2.273,2.273,2.273h15.01c1.25,0,2.273-1.021,2.273-2.273v-6.535H17.975z
+									 M7.376,1.887h4.802c0.152,0,0.275,0.121,0.275,0.273c0,0.15-0.123,0.275-0.275,0.275H7.376c-0.152,0-0.274-0.125-0.274-0.275
+									C7.102,2.008,7.224,1.887,7.376,1.887z M9.777,32.777c-0.627,0-1.137-0.51-1.137-1.139c0-0.627,0.51-1.137,1.137-1.137
+									c0.629,0,1.139,0.51,1.139,1.137C10.915,32.267,10.406,32.777,9.777,32.777z M25.406,23.711H9.14l-2.993-13.44h18.301l-0.496,1.926
+									H8.547l2.137,9.591h13.177l3.311-14.991h6.985v1.924h-5.44L25.406,23.711z M14.531,26.267c0,0.992-0.806,1.797-1.795,1.797
+									c-0.992,0-1.797-0.805-1.797-1.797c0-0.99,0.805-1.795,1.797-1.795C13.727,24.472,14.531,25.277,14.531,26.267z M23.922,26.267
+									c0,0.992-0.805,1.797-1.797,1.797c-0.99,0-1.795-0.805-1.795-1.797c0-0.99,0.805-1.795,1.795-1.795
+									C23.117,24.472,23.922,25.277,23.922,26.267z"/>
+							</g>
+						</svg>
+					</div>
+					<h2><a href="product" class="title no-decoration"><span class="title__bold">汽教</span>商店</a></h2>
+					<p class="text">精选高性能，高质量产品</p>
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-12 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+				<div class="anons__block anons__block--center triangle triangle--block-center">
+					<div class="anons__photo"><img class="img-responsive" th:src="@{/static/front/media/370x180/news.jpg}" alt="news"></div>
+					<div class="anons__color-block">
+						<h2><a href="news" class="title no-decoration"><span class="title__bold">众兆</span>新闻</a></h2>
+						<p class="text">实时推送精彩新闻资讯</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-12 wow zoomInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
+				<div class="anons__block triangle triangle--block line-down">
+					<div class="anons__img anons__img--bike">
+						<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="90px" height="90px" viewBox="0 0 31.416 31.416" style="enable-background:new 0 0 31.416 31.416;"
+	 xml:space="preserve">
+							<g>
+								<g>
+									<path d="M28.755,6.968l-0.47,0.149L25.782,7.34l-0.707,1.129l-0.513-0.163L22.57,6.51l-0.289-0.934L21.894,4.58l-1.252-1.123
+										l-1.477-0.289l-0.034,0.676l1.447,1.412l0.708,0.834L20.49,6.506l-0.648-0.191L18.871,5.91l0.033-0.783l-1.274-0.524l-0.423,1.841
+										l-1.284,0.291l0.127,1.027l1.673,0.322l0.289-1.641l1.381,0.204l0.642,0.376h1.03l0.705,1.412l1.869,1.896l-0.137,0.737
+										l-1.507-0.192l-2.604,1.315l-1.875,2.249l-0.244,0.996h-0.673l-1.254-0.578l-1.218,0.578l0.303,1.285l0.53-0.611l0.932-0.029
+										l-0.065,1.154l0.772,0.226l0.771,0.866l1.259-0.354l1.438,0.227l1.67,0.449l0.834,0.098l1.414,1.605l2.729,1.605l-1.765,3.372
+										l-1.863,0.866l-0.707,1.927l-2.696,1.8l-0.287,1.038c6.892-1.66,12.019-7.851,12.019-15.253
+										C31.413,12.474,30.433,9.465,28.755,6.968z"/>
+									<path d="M17.515,23.917l-1.144-2.121l1.05-2.188l-1.05-0.314l-1.179-1.184l-2.612-0.586l-0.867-1.814v1.077h-0.382l-2.251-3.052
+										v-2.507L7.43,8.545L4.81,9.012H3.045L2.157,8.43L3.29,7.532L2.16,7.793c-1.362,2.326-2.156,5.025-2.156,7.916
+										c0,8.673,7.031,15.707,15.705,15.707c0.668,0,1.323-0.059,1.971-0.137l-0.164-1.903c0,0,0.721-2.826,0.721-2.922
+										C18.236,26.357,17.515,23.917,17.515,23.917z"/>
+									<path d="M5.84,5.065l2.79-0.389l1.286-0.705l1.447,0.417l2.312-0.128l0.792-1.245l1.155,0.19l2.805-0.263L19.2,2.09l1.09-0.728
+										l1.542,0.232l0.562-0.085C20.363,0.553,18.103,0,15.708,0C10.833,0,6.474,2.222,3.596,5.711h0.008L5.84,5.065z M16.372,1.562
+										l1.604-0.883l1.03,0.595l-1.491,1.135l-1.424,0.143l-0.641-0.416L16.372,1.562z M11.621,1.691l0.708,0.295l0.927-0.295
+										l0.505,0.875l-2.14,0.562l-1.029-0.602C10.591,2.526,11.598,1.878,11.621,1.691z"/>
+								</g>
+							</g>
+						</svg>
+					</div>
+					<h2><a href="#" class="title no-decoration"><span class="title__bold">免费</span>咨询</a></h2>
+					<p class="text">提供一对一高效咨询通道</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!--anons-->
+
+<!--案例-->
+<section class="we-are ">
+	<div class="container">
+		<h2 class="title title--main wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">专注高质量<span class="title__bold">高教</span>十余年<span class="line line--title"><span class="line__first"></span><span class="line__second"></span></span></h2>
+		<p class="text text--anons wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">杭州众兆科技有限公司是集开发设计、研制生产、销售服务为一体的现代化企业。 公司长期奉行“诚信、敬业、创新”的企业文化和“服务于高教”的经营理念，不断推出高科技产品，拓展市场，实现了企业跨越式发展。</p>
+		<div class="row">
+			<div class="col-sm-6 col-xs-12" th:each="case,cstat:${listC}" th:if="${cstat.index}<=2">
+
+				<div class="we-are__img wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s" th:if="${cstat.odd}"><img class="img-responsive" th:src="@{/static/front/media/case570x325/{img}(img=${case.getStrCaseImage()})}" alt="case"></div>
+				<div class="we-are__block triangle triangle--big wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="2.5s">
+					<h3 class="title title--block"><span class="title__bold" th:text="${case.getStrCaseTitle()}"></span></h3>
+					<p class="text" th:text="${case.getStrCaseDesc()}"></p>
+					<a href="comcase" class="btn button button--red button--main">更多案例</a>
+				</div>
+				<div class="we-are__img wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s" th:if="${cstat.even}"><img class="img-responsive" th:src="@{/static/front/media/case570x325/{img}(img=${case.getStrCaseImage()})}" alt="case"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--数据统计-->
+<div class="numbers" >
+	<div class="container">
+		<div class="clearfix percent-blocks" data-waypoint-scroll="true">
+			<div class="numbers__one">
+				<header class="numbers__head">
+					<span class="fa fa-building"></span>
+					<div class="line line--slim line--title"><div class="line__first"></div><div class="line__second"></div></div>
+				</header>
+				<div class="numbers__body chart" data-percent="25">
+					<div class="numbers__num percent">25</div>
+					<div class="number__desc">商品种类</div>
+				</div>
+			</div>
+			<div class="numbers__one">
+				<header class="numbers__head">
+					<span class="fa fa-motorcycle"></span>
+					<div class="line line--slim line--title"><div class="line__first"></div><div class="line__second"></div></div>
+				</header>
+				<div class="numbers__body chart" data-percent="5000">
+					<div class="numbers__num percent">5000</div>
+					<div class="number__desc">累计出售</div>
+				</div>
+			</div>
+			<div class="numbers__one">
+				<header class="numbers__head">
+					<span class="fa fa-cog"></span>
+					<div class="line line--slim line--title"><div class="line__first"></div><div class="line__second"></div></div>
+				</header>
+				<div class="numbers__body chart" data-percent="1258">
+					<div class="numbers__num percent">1258</div>
+					<div class="number__desc">企业会员</div>
+				</div>
+			</div>
+			<div class="numbers__one">
+				<header class="numbers__head">
+					<span class="fa fa-tachometer"></span>
+					<div class="line line--slim line--title"><div class="line__first"></div><div class="line__second"></div></div>
+				</header>
+				<div class="numbers__body chart" data-percent="6000">
+					<div class="numbers__num percent">6000</div>
+					<div class="number__desc">合作伙伴</div>
+				</div>
+			</div>
+			<div class="numbers__one">
+				<header class="numbers__head">
+					<span class="fa fa-road"></span>
+					<div class="line line--slim line--title"><div class="line__first"></div><div class="line__second"></div></div>
+				</header>
+				<div class="numbers__body chart" data-percent="10000">
+					<div class="numbers__num percent">10000</div>
+					<div class="number__desc">累计服务</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--商品展示-->
+<div class="reviews">
+	<div class="container">
+		<ul class="reviews-slider enable-bx-slider" data-auto="true" data-auto-hover="true" data-mode="horizontal" data-pager="false" data-pager-custom="null" data-prev-selector="null" data-next-selector="null">
+			<li th:each="listPro:${listP}">
+				<div class="review wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" >
+					<div class="row row--no-padding">
+						<div class="col-xs-3">
+							<div class="review__img">
+								<div class="review__quote triangle triangle--services">
+									<span class="fa-quote-left fa"></span>
+								</div>
+								<img class="img-responsive" th:src="@{/static/front/media/product250x200/{img}(img=${listPro.getStrProImage()})}" alt='bike'>
+							</div>
+						</div>
+						<div class="col-xs-9">
+							<div class="review__text">
+								<a th:href="product+${listPro.getIntProId()}" style="text-decoration: none;"><div class="review__main-text" th:text="${listPro.getStrProName()}"></div></a>
+								<div class="review__author" th:text="${listPro.getStrProDesc()}"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+<!--企业荣誉-->
+<section class="listings">
+	<div class="container">
+		<header class="tab-header clearfix wow slideInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">
+			<h2 class="title title--main pull-left"><span class="title__bold">企业</span>荣誉<span class="line line--title"><span class="line__first"></span><span class="line__second"></span></span></h2>
+			<div class="tab-toggles pull-right js-isotope-btns">
+			</div>
+		</header>
+		<p class="text text--anons wow slideInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">   杭州众兆科技有限公司是集开发设计、研制生产、销售服务为一体的现代化企业。 公司长期奉行“诚信、敬业、创新”的企业文化和“服务于高教”的经营理念，不断推出高科技产品，拓展市场，实现了企业跨越式发展。</p>
+		<div class="row isotope">
+			<div class="col-md-3 col-xs-6 isotope-item wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" th:each="listHon:${listH}"}>
+				<a href="product" class="listing-anons equal-height-item listing-anons--home triangle triangle--big line-down no-decoration">
+					<div class="listing-anons__img">
+						<img th:src="@{/static/front/media/honor270x230/{img}(img = ${listHon.getStrHonImage()})}" class="img-responsive" alt="bike" />
+					</div>
+					<div class="listing-anons__title">
+						<h4 class="name" th:text="${listHon.getStrHonDate()}"></h4>
+					</div>
+					<div class="listing-anons__hidden">
+						<h3 th:text="${listHon.getStrHonName()}"></h3>
+						<p th:text="${listHon.getStrHonTag()}"></p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--企业新闻-->
+<section class="blog">
+	<div class="container-fluid no-padding">
+		<div class="row row--no-padding">
+			<div class="col-lg-4 col-xs-12 wow zoomInLeft" data-wow-delay="0.7s" data-wow-duration="1s">
+				<div class="blog__info">
+					<h2 class="title title--main"><span class="title__bold">众兆</span>新闻<span class="line line--small"><span class="line__second"></span><span class="line__first"></span></span></h2>
+					<p class="text">汇集企业资讯，行业发展</p>
+					<a href="news" class="button btn button--main button--red">查看</a>
+				</div>
+			</div>
+			<div class="col-lg-8 col-xs-12">
+				<div class="row row--no-padding">
+					<div class="col-sm-6 col-xs-12 wow zoomInDown" data-wow-delay="0.7s" data-wow-duration="1.5s" th:each="listNews:${listN}">
+						<a href="comcase" class="blog-anons no-decoration">
+							<div class="blog-anons__img">
+								<img th:src="@{/static/front/media/news575x250/{img}(img=${listNews.getStrNewsTag()})}" class="img-responsive" alt="bike" />
+							</div>
+							<div class="blog-anons__hidden triangle triangle--bigger">
+								<div class="blog-anons__text">
+									<h3 th:text="${listNews.getStrNewsTitle()}"></h3>
+									<div class="blog-anons__info">
+										<span th:text="${listNews.getStrNewsDate()}"></span>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--企业合作-->
+<section class="partners">
+	<div class="container wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+		<h2 class="title title--main">合作<span class="title__bold">伙伴</span><span class="line line--title line--center"><span class="line__first"></span><span class="line__second"></span></span></h2>
+		<p class="text--small">增加合作各方的收益。这是合作的根本基础。
+			通过合作，合作各方可以利用合作的整体优势，把蛋糕做大。与此同时，合作各方都能从中获得较多的收益。</p>
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<div class="brand">
+					<img th:src="@{/static/front/media/logos/luxe.png}" alt="brand" />
+				</div>
+				<div class="brand">
+					<img th:src="@{/static/front/media/logos/wuezon.png}" alt="brand" />
+				</div>
+				<div class="brand">
+					<img th:src="@{/static/front/media/logos/motox.png}" alt="brand" />
+				</div>
+				<div class="brand">
+					<img th:src="@{/static/front/media/logos/dna.png}" alt="brand" />
+				</div>
+				<div class="brand">
+					<img th:src="@{/static/front/media/logos/mint.png}" alt="brand" />
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--产品订阅-->
+<section class="signup">
+	<div class="container">
+		<div class="row wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+			<div class="col-lg-5 col-md-6 col-xs-12">
+				<div class="signup__desc">
+					<h2 class="title title--main"><span class="fa fa-envelope-o"></span><span class="title__bold">产品资讯</span>订阅</h2>
+					<p class="text--small">发送邮件到您的邮箱，我们会给您合理，优秀的方案 </p>
+				</div>
+			</div>
+			<div class="col-lg-7 col-md-6 col-xs-12">
+				<form action="" method="post" class="sign-form">
+					<div class="relative-pos"><div class="input-triangle"></div><input class="sign-input" type="text" name="sign" placeholder="输入邮件地址" /></div>
+					<button type="submit" class="btn button button--red button--sign triangle triangle--12">提交</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--联系我们-->
+<div th:include="front/quote :: conus"></div>
+<!--在线咨询-->
+<div th:include="front/quote :: consultation"></div>
+
+
+<!--Main-->   
+<script th:src="@{/static/front/js/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/static/front/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/front/js/modernizr.custom.js}"></script>
+<!--Counter-->
+<script th:src="@{/static/front/assets/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/waypoints.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/classie.js}"></script>
+<!--Switcher-->
+<script th:src="@{/static/front/assets/switcher/js/switcher.js}"></script>
+<!--Owl Carousel-->
+<script th:src="@{/static/front/assets/owl-carousel/owl.carousel.min.js}"></script>
+<!--bxSlider-->
+<script th:src="@{/static/front/assets/bxslider/jquery.bxslider.min.js}"></script>
+<!-- jQuery UI Slider -->
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<!--Isotope-->
+<script th:src="@{/static/front/assets/isotope/isotope.js}"></script>
+<!--Slider-->
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<!--Fancybox-->
+<script th:src="@{/static/front/assets/fancybox/jquery.fancybox.pack.js}"></script>
+<!--Theme-->
+<script th:src="@{/static/front/js/jquery.smooth-scroll.js}"></script>
+<script th:src="@{/static/front/js/wow.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.placeholder.min.js}"></script>
+<script th:src="@{/static/front/js/theme.js}"></script>
+</body>
+</html>

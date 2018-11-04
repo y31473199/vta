@@ -1,0 +1,71 @@
+<html  xmlns:th="http://www.thymeleaf.org" lang="ZH_CN">
+  <head>
+    <title>登录到众兆管理</title>
+    <!-- Bootstrap -->
+    <link th:href="@{/static/back/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/static/back/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/static/back/assets/styles.css}" rel="stylesheet" media="screen">
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" th:src="@{/static/back/vendors/flot/excanvas.min.js}"></script><![endif]-->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script th:src="@{/static/back/assets/html5.js}"</script>
+    <![endif]-->
+    <script th:src="@{/static/back/vendors/modernizr-2.6.2-respond-1.1.0.min.js}"></script>
+  </head>
+  <body id="login">
+    <div class="container">
+
+      <div  class="form-signin">
+        <div class="alert" id="warn" style="display: none">
+          <button class="close" data-dismiss="alert">&times;</button>
+          <strong>登录失败！</strong> 错误的用户名或密码
+        </div>
+        <div class="alert" id="input" style="display: none">
+          <button class="close" data-dismiss="alert">&times;</button>
+          <strong>请输入用户名并输入正确的密码！</strong>
+        </div>
+        <h2 class="form-signin-heading">杭州众兆管理系统</h2>
+        <input type="text" id="tel" class="input-block-level" placeholder="用户名/手机号">
+        <input type="password" id="pwd" class="input-block-level" placeholder="密码">
+        <label class="checkbox">
+          <input type="checkbox" value="remp"> 记住密码
+        </label>
+        <button class="btn btn-large btn-primary" onclick="ajaxLogin()">登录</button>
+        <a href="admin"><span class="badge badge-important">忘记密码，联系小X？</span></a>
+        <p>登录即表示您同意<a href="#">《众兆后台管理许可协议》</a></p>
+      </div>
+
+    </div>
+    <script th:src="@{/static/back/vendors/jquery-1.9.1.min.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+
+        /*<![CDATA[*/
+        function ajaxLogin(){
+            var user = $("#tel").val();
+            var passwd = $("#pwd").val();
+            $("#warn").hide();
+            if(user==""|passwd==""){
+                $("#input").show();
+            }else {
+                $.ajax({
+                    url: "clogin",
+                    type: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({user : user,passwd : passwd}),
+                    async: false,
+                    success: function(data){
+                        if(data.code=='10000'){
+                            window.location.href='/admin';
+                        }else if (data.code=='10002') {
+                                  $("#warn").show();
+                        }
+                    }
+                });
+            }
+        }
+        /*]]>*/
+    </script>
+    <script th:src="@{/static/back/bootstrap/js/bootstrap.min.js}"></script>
+  </body>
+</html>

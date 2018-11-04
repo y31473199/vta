@@ -1,0 +1,431 @@
+<!DOCTYPE html> <html  xmlns:th="http://www.thymeleaf.org" lang="ZH_CN">
+
+<head>
+    <title>众兆官网后台管理系统</title>
+    <!-- Bootstrap -->
+    <link th:href="@{/static/back/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/static/back/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/static/back/assets/styles.css}" rel="stylesheet" media="screen">
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" th:src="@{/static/back/vendors/flot/excanvas.min.js}"></script><![endif]-->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script th:src="@{/static/back/assets/html5.js}"</script>
+    <![endif]-->
+    <script th:src="@{/static/back/vendors/modernizr-2.6.2-respond-1.1.0.min.js}"></script>
+</head>
+
+<body>
+<div th:include="back/quote :: navb"></div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div th:include="back/quote :: sideb"></div>
+        <!--/span-->
+        <div class="span9" id="content">
+            <!-- morris stacked chart -->
+            <div class="row-fluid">
+                <!-- block -->
+                <div class="block">
+                    <div class="navbar navbar-inner block-header">
+                        <div class="muted pull-left">产品</div>
+                    </div>
+                    <div class="block-content collapse in">
+                        <div class="span12">
+                            <form class="form-horizontal" action="/add" method="post">
+                                <fieldset>
+                                    <legend th:unless="${state}=='add'" th:text="${prod.getStrProName()}"></legend>
+                                    <legend th:if="${state}=='add'" th:text="添加新产品"></legend>
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" for="focusedInput">名称<span class="required">*</span>：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" th:value="${prod.getStrProName()}" >
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">名称：</label>
+                                        <div class="controls">
+                                            <span class="input-xlarge uneditable-input" th:text="${prod.getStrProName()}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">名称：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused"  type="text" id="name" >
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" for="focusedInput">类型：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" th:value="${prod.getProType()}" >
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">类型：</label>
+                                        <div class="controls">
+                                            <span class="input-xlarge uneditable-input" th:text="${prod.getProType()}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">类型：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" id="type">
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" for="focusedInput">规格（毫米）：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" th:value="${prod.getStrProSpec()}" >
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">规格（毫米）：</label>
+                                        <div class="controls">
+                                            <span class="input-xlarge uneditable-input" th:text="${prod.getStrProSpec()}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">规格（毫米）：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" id="spec">
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" for="focusedInput">材质：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" th:value="${prod.getStrProMate()}" >
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">材质：</label>
+                                        <div class="controls">
+                                            <span class="input-xlarge uneditable-input" th:text="${prod.getStrProMate()}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">材质：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text"  id="mate">
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" for="focusedInput">颜色：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" th:value="${prod.getStrProColor()}" >
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">颜色：</label>
+                                        <div class="controls">
+                                            <span class="input-xlarge uneditable-input" th:text="${prod.getStrProColor()}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'" id="color">
+                                        <label class="control-label">颜色：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" >
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" for="focusedInput">型号：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" th:value="${prod.getStrProModle()}" >
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">型号：</label>
+                                        <div class="controls">
+                                            <span class="input-xlarge uneditable-input" th:text="${prod.getStrProModle()}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">型号：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" id="modle">
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" for="focusedInput">质量（千克）：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" th:value="${prod.getDouProWeigth()}" >
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">质量（千克）：</label>
+                                        <div class="controls">
+                                            <span class="input-xlarge uneditable-input" th:text="${prod.getDouProWeigth()}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">质量（千克）：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" id="weigth">
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" for="focusedInput">最低价（元）：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" th:value="${prod.getBigProPrice()}" >
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">最低价(元)：</label>
+                                        <div class="controls">
+                                            <span class="input-xlarge uneditable-input" th:text="${prod.getBigProPrice()}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">最低价(元)：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" id="price">
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" for="focusedInput">市场价(元)：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" th:value="${prod.getBigProMaprice()}" >
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">市场价(元)：</label>
+                                        <div class="controls">
+                                            <span class="input-xlarge uneditable-input" th:text="${prod.getBigProMaprice()}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">市场价(元)：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" id="maprice">
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" for="focusedInput">星级（请填写5以内的数字）：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" th:value="${prod.getIntProStar()}" >
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">星级：</label>
+                                        <div class="controls">
+                                            <span class="input-xlarge uneditable-input" th:text="${prod.getIntProStar()}"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">星级（请填写5以内的数字）：</label>
+                                        <div class="controls">
+                                            <input class="input-xlarge focused" type="text" id="star">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" >包含软件：</label>
+                                        <div class="controls">
+                                            <label th:if="${prod.getIntProReally()==1}">
+                                                <input  type="radio" name="soft" value="1" checked="checked">是
+                                                <input type="radio" name="soft" value="0">否
+                                            </label>
+                                            <label th:unless="${prod.getIntProReally()==1}">
+                                                <input  type="radio"  name="soft" value="1">是
+                                                <input type="radio"  name="soft" value="0" checked="checked">否
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label" >包含软件：</label>
+                                        <div class="controls">
+                                            <label th:if="${prod.getIntProReally()==1}">
+                                                <input  type="radio" disabled="" checked="checked">是
+                                                <input  type="radio" disabled="" >否
+                                            </label>
+                                            <label th:unless="${prod.getIntProReally()==1}">
+                                                <input  type="radio" disabled="" >是
+                                                <input type="radio" disabled="" checked="checked">否
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label" >包含软件：</label>
+                                        <div class="controls">
+                                            <label>
+                                                <input name="soft" type="radio" checked="checked">是
+                                                <input name="soft" type="radio" >否
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">描述：</label>
+                                        <div class="controls">
+                                            <textarea id="desc" class="input-xlarge textarea" th:text="${prod.getStrProDesc()}" style="width: 810px; height: 200px" disabled="disabled"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label">描述：</label>
+                                        <div class="controls">
+                                            <textarea class="input-xlarge textarea" th:text="${prod.getStrProDesc()}" style="width: 810px; height: 200px" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">描述：</label>
+                                        <div class="controls">
+                                            <textarea id="desc" class="input-xlarge textarea" style="width: 810px; height: 200px" ></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label">参数：</label>
+                                        <div class="controls">
+                                            <textarea class="input-xlarge textarea" th:text="${prod.getStrProPara()}" style="width: 810px; height: 200px" readonly></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label">参数：</label>
+                                        <div class="controls">
+                                            <textarea class="input-xlarge textarea" th:text="${prod.getStrProPara()}" style="width: 810px; height: 200px" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label">参数：</label>
+                                        <div class="controls">
+                                            <textarea id="para" class="input-xlarge textarea" style="width: 810px; height: 200px" ></textarea>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="control-group" th:if="${state}=='edit'">
+                                        <label class="control-label" >产品状态：</label>
+                                        <div class="controls">
+                                            <label th:if="${prod.getIntProState()==1}">
+                                                <input  type="radio" name="state" value="1" checked="checked">展示
+                                                <input type="radio" name="state" value="0">下架
+                                            </label>
+                                            <label th:unless="${prod.getIntProState()==1}">
+                                                <input  type="radio"  name="state" value="1">展示
+                                                <input type="radio"  name="state" value="0" checked="checked">下架
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group" th:if="${state}=='noedit'">
+                                        <label class="control-label" >产品状态：</label>
+                                        <div class="controls">
+                                            <label th:if="${prod.getIntProState()==1}">
+                                                <input  type="radio"  name="state" disabled="" checked="checked">展示
+                                                <input  type="radio" name="state"  disabled="" >下架
+                                            </label>
+                                            <label th:unless="${prod.getIntProState()==1}">
+                                                <input  type="radio"  name="state" disabled="" >展示
+                                                <input type="radio"  name="state" disabled="" checked="checked">下架
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group" th:if="${state}=='add'">
+                                        <label class="control-label" >产品状态：</label>
+                                        <div class="controls">
+                                            <label>
+                                                <input  type="radio"  name="state" checked="checked">展示
+                                                <input  type="radio" name="state"  >不展示
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="fileInput">产品照片：</label>
+                                        <div class="span3">
+                                            <a href="#" class="thumbnail">
+                                                <img data-src="holder.js/260x180" alt="260x180" style="width: 260px; height: 180px;" src="data:image/png;base64,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">
+                                            </a>
+                                            <div class="controls" th:if="${state}=='edit'">
+                                                <input class="input-file uniform_on" type="file">
+                                            </div>
+                                            <div class="controls" th:if="${state}=='add'">
+                                                <input id="img" class="input-file uniform_on" type="file">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-primary" th:if="${state}=='add'">保存</button>
+                                        <button type="submit" class="btn btn-primary" th:if="${state}=='edit'">修改</button>
+                                        <button type="reset" class="btn">返回</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /block -->
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div th:include="back/quote :: foot"></div>
+</div>
+<!--/.fluid-container-->
+<link th:href="@{/static/back/vendors/datepicker.css}" rel="stylesheet" media="screen">
+<link th:href="@{/static/back/vendors/uniform.default.css}" rel="stylesheet" media="screen">
+<link th:href="@{/static/back/vendors/chosen.min.css}" rel="stylesheet" media="screen">
+
+<link th:href="@{/static/back/vendors/wysiwyg/bootstrap-wysihtml5.css}" rel="stylesheet" media="screen">
+
+<script th:src="@{/static/back/vendors/jquery-1.9.1.js}"></script>
+<script th:src="@{/static/back/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/back/vendors/jquery.uniform.min.js}"></script>
+<script th:src="@{/static/back/vendors/chosen.jquery.min.js}"></script>
+<script th:src="@{/static/back/vendors/bootstrap-datepicker.js}"></script>
+
+<script th:src="@{/static/back/vendors/wysiwyg/wysihtml5-0.3.0.js}"></script>
+<script th:src="@{/static/back/vendors/wysiwyg/bootstrap-wysihtml5.js}"></script>
+
+<script th:src="@{/static/back/vendors/wizard/jquery.bootstrap.wizard.min.js}"></script>
+
+<script type="text/javascript" th:src="@{/static/back/vendors/jquery-validation/dist/jquery.validate.min.js}"></script>
+<script th:src="@{/static/back/assets/form-validation.js}"></script>
+
+<script th:src="@{/static/back/assets/scripts.js}"></script>
+<script>
+
+    jQuery(document).ready(function() {
+        FormValidation.init();
+    });
+
+
+    $(function() {
+        $(".datepicker").datepicker();
+        $(".uniform_on").uniform();
+        $(".chzn-select").chosen();
+        $('.textarea').wysihtml5();
+
+        $('#rootwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
+                var $total = navigation.find('li').length;
+                var $current = index+1;
+                var $percent = ($current/$total) * 100;
+                $('#rootwizard').find('.bar').css({width:$percent+'%'});
+                // If it's the last tab then hide the last button and show the finish instead
+                if($current >= $total) {
+                    $('#rootwizard').find('.pager .next').hide();
+                    $('#rootwizard').find('.pager .finish').show();
+                    $('#rootwizard').find('.pager .finish').removeClass('disabled');
+                } else {
+                    $('#rootwizard').find('.pager .next').show();
+                    $('#rootwizard').find('.pager .finish').hide();
+                }
+            }});
+        $('#rootwizard .finish').click(function() {
+            alert('Finished!, Starting over!');
+            $('#rootwizard').find("a[href*='tab1']").trigger('click');
+        });
+    });
+</script>
+</body>
+
+</html>

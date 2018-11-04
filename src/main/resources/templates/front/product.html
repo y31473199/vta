@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="ZH_CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="icon" type="image/x-icon" th:href="@{/static/front/media/logos/zz.jpg}" />
+
+	<link th:href="@{/static/front/css/master.css}" rel="stylesheet">
+
+	<!-- 样式文件 -->
+	<link rel="stylesheet" id="switcher-css" type="text/css" th:href="@{/static/front/assets/switcher/css/switcher.css}" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color1.css}" title="color1" media="all"  />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color2.css}" title="color2" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color3.css}" title="color3" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color4.css}" title="color4" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color5.css}" title="color5" media="all" data-default-color="true" />
+
+	<!--[if lt IE 9]>
+	<script th:src="@{/static/front/js/html5shiv.js}"></script>
+	<script th:src="@{/static/front/js/respond.min.js}"></script>
+	<![endif]-->
+</head>
+<body>
+<div id="page-preloader"><span class="spinner"></span></div>
+<div th:include="front/quote :: Ccolors"></div>
+<div th:include="front/quote :: header"></div>
+<div th:include="front/quote :: navbar"></div>
+<section class="status status--shop dark-bg dark-bg--shop">
+	<div class="container wow slideInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
+		<div class="breadcumb">
+			<a href="/" class="breadcumb__page no-decoration">首页</a>
+			<span class="breadcumb__del no-decoration">&raquo;</span>
+			<a href="product" class="breadcumb__page no-decoration">产品展示</a>
+		</div>
+		<h2 class="title title--page"><span class="title__bold">部分设备</span> 展示</h2>
+	</div>
+</section>
+<section class="shop" th:if="${productByT}==null">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1 col-xs-12">
+				<div class="about-us about-us--shop wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+					<h1>以下设备仅供参考，我们主营
+						<span>提供定制的</span> 设备</h1>
+				</div>
+			</div>
+		</div>
+		<div class="row row--main-shop">
+			<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
+				<aside class="shop-aside">
+					<form class=" wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" action="" method="post">
+						<div class="relative-pos shop-aside__search">
+							<input type="text" name="search" placeholder="输入文字以搜索..." />
+							<button type="submit"><span class="fa fa-search"></span></button>
+						</div>
+					</form>
+					<div class="shop-aside__block wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+						<h2 class="shop-title">商品分类<span class="line line--title line--shop"><span class="line__first"></span><span class="line__second"></span></span></h2>
+						<ul class="triangle-list triangle-list--shop">
+							<li class="triangle triangle-list__one" th:each="type:${types}"><a class="no-decoration" th:href="'product?tyid='+${type.getTyIntId()}"  th:text="${type.getTyStrName()}"></a></li>
+						</ul>
+					</div>
+					<div class="shop-aside__block wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+						<h2 class="shop-title">按价格筛选<span class="line line--title line--shop"><span class="line__first"></span><span class="line__second"></span></span></h2>
+						<div class="js-shop-slider price-slider"></div>
+						<div class="clearfix">
+							<form action="" method="post" class="price-num">
+								价格:
+								￥<span class="js-min">100</span> - ￥<span class="js-max">1000</span>
+								<input type="hidden" name="min" class="js-min-input" />
+								<input type="hidden" name="min" class="js-max-input" />
+							</form>
+							<button class="button button--main button--filter button--dark btn pull-right">筛选</button>
+						</div>
+					</div>
+				</aside>
+			</div>
+			<div class="col-lg-9 col-md-8 col-sm-7 col-xs-6" >
+				<div class="shop-main">
+					<header class="shop-main__head clearfix wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s"  >
+						<h4 class="pull-left" th:text="'展示'+${product.numberOfElements}+'个商品中的1-9个商品'"></h4>
+						<a href="#" class="button button&#45;&#45;grey button&#45;&#45;main btn button&#45;&#45;active pull-right">排序</a>
+					</header>
+					<div class="items">
+						<div class="row" >
+							<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s"    th:each="prod,pro: ${product.content}">
+								<div class="item-cell js-cell equal-height-item" >
+									<div class="item-cell__top">
+										<div class="item-cell__img">
+											<img th:src="@{/static/front/media/products/{imgurl}(imgurl= ${prod.pro_image})}" class="img-responsive center-block" alt="item">
+										</div>
+										<div class="item-cell__actions">
+											<a href="#" class="add-to-cart"><span class="fa fa-shopping-cart"></span></a>
+											<a href="#" class="see-detail"><span class="fa fa-search-plus"></span></a>
+										</div>
+									</div>
+									<div class="item-cell__bottom">
+										<h1 class="item-title"><a class="no-decoration" href="item.html" th:text="${prod.pro_name}" ></a></h1>
+										<div class="item-cell__info clearfix">
+											<div class="item-price pull-left" >产品星级：</div>
+											<div class="stars pull-right">
+												<span class="star" th:each="i:${#numbers.sequence(1,prod.pro_star)}"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-9 col-md-8 col-sm-7 col-xs-6" >
+								<div class="shop-main">
+									<div class="items">
+										<div class="row" >
+											<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s"   th:each="prod: ${productByT}">
+												<div class="item-cell js-cell equal-height-item" >
+													<div class="item-cell__top">
+														<div class="item-cell__img">
+															<img th:src="@{/static/front/media/products/{imgurl}(imgurl= ${prod.getStrProImage()})}" class="img-responsive center-block" alt="item">
+														</div>
+														<div class="item-cell__actions">
+															<a href="#" class="add-to-cart"><span class="fa fa-shopping-cart"></span></a>
+															<a href="#" class="see-detail"><span class="fa fa-search-plus"></span></a>
+														</div>
+													</div>
+													<div class="item-cell__bottom">
+														<h1 class="item-title"><a class="no-decoration" href="item.html" th:text="${prod.getStrProName()}" ></a></h1>
+														<div class="item-cell__info clearfix">
+															<div class="item-price pull-left" >产品星级：</div>
+															<div class="stars pull-right">
+																<span class="star" th:each="i:${#numbers.sequence(1,prod.getIntProStar())}"></span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+			<section class="shop"  th:unless="${productByT}==null">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-1 col-xs-12">
+							<div class="about-us about-us--shop wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+								<h1>以下设备仅供参考，我们主营
+									<span>提供定制的</span> 设备</h1>
+							</div>
+						</div>
+					</div>
+					<div class="row row--main-shop">
+						<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
+							<aside class="shop-aside">
+								<form class=" wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" action="" method="post">
+									<div class="relative-pos shop-aside__search">
+										<input type="text" name="search" placeholder="输入文字以搜索..." />
+										<button type="submit"><span class="fa fa-search"></span></button>
+									</div>
+								</form>
+								<div class="shop-aside__block wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+									<h2 class="shop-title">商品分类<span class="line line--title line--shop"><span class="line__first"></span><span class="line__second"></span></span></h2>
+									<ul class="triangle-list triangle-list--shop">
+										<li class="triangle triangle-list__one" th:each="type:${types}"><a class="no-decoration" th:href="'product?tyid='+${type.getTyIntId()}"  th:text="${type.getTyStrName()}"></a></li>
+									</ul>
+								</div>
+								<div class="shop-aside__block wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+									<h2 class="shop-title">按价格筛选<span class="line line--title line--shop"><span class="line__first"></span><span class="line__second"></span></span></h2>
+									<div class="js-shop-slider price-slider"></div>
+									<div class="clearfix">
+										<form action="" method="post" class="price-num">
+											价格:
+											￥<span class="js-min">100</span> - ￥<span class="js-max">1000</span>
+											<input type="hidden" name="min" class="js-min-input" />
+											<input type="hidden" name="min" class="js-max-input" />
+										</form>
+										<button class="button button--main button--filter button--dark btn pull-right">筛选</button>
+									</div>
+								</div>
+							</aside>
+						</div>
+						<div class="col-lg-9 col-md-8 col-sm-7 col-xs-6" >
+							<div class="shop-main">
+								<header class="shop-main__head clearfix wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s"  >
+									<h4 class="pull-left" th:text="'该类型共计'+${productByT.size()}+'个商品'"></h4>
+									<a href="#" class="button button&#45;&#45;grey button&#45;&#45;main btn button&#45;&#45;active pull-right">排序</a>
+								</header>
+								<div class="items">
+													<div class="row">
+														<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s"   th:each="prod: ${productByT}">
+															<div class="item-cell js-cell equal-height-item" >
+																<div class="item-cell__top">
+																	<div class="item-cell__img">
+																		<img th:src="@{/static/front/media/products/{imgurl}(imgurl= ${prod.getStrProImage()})}" class="img-responsive center-block" alt="item">
+																	</div>
+																	<div class="item-cell__actions">
+																		<a href="#" class="add-to-cart"><span class="fa fa-shopping-cart"></span></a>
+																		<a href="#" class="see-detail"><span class="fa fa-search-plus"></span></a>
+																	</div>
+																</div>
+																<div class="item-cell__bottom">
+																	<h1 class="item-title"><a class="no-decoration" href="item.html" th:text="${prod.getStrProName()}" ></a></h1>
+																	<div class="item-cell__info clearfix">
+																		<div class="item-price pull-left" >产品星级：</div>
+																		<div class="stars pull-right">
+																			<span class="star" th:each="i:${#numbers.sequence(1,prod.getIntProStar())}"></span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+</div>
+</div>
+</div>
+	</div>
+</div>
+<div th:include="front/quote :: footeri"></div>
+<div th:include="front/quote :: copyright"></div>
+
+<script th:src="@{/static/front/js/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/static/front/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/front/js/modernizr.custom.js}"></script>
+<!--Counter-->
+<script th:src="@{/static/front/assets/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/waypoints.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/classie.js}"></script>
+<!--Switcher-->
+<script th:src="@{/static/front/assets/switcher/js/switcher.js}"></script>
+<!--Owl Carousel-->
+<script th:src="@{/static/front/assets/owl-carousel/owl.carousel.min.js}"></script>
+<!--bxSlider-->
+<script th:src="@{/static/front/assets/bxslider/jquery.bxslider.min.js}"></script>
+<!-- jQuery UI Slider -->
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<!--Isotope-->
+<script th:src="@{/static/front/assets/isotope/isotope.js}"></script>
+<!--Slider-->
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<!--Fancybox-->
+<script th:src="@{/static/front/assets/fancybox/jquery.fancybox.pack.js}"></script>
+<!--Theme-->
+<script th:src="@{/static/front/js/jquery.smooth-scroll.js}"></script>
+<script th:src="@{/static/front/js/wow.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.placeholder.min.js}"></script>
+<script th:src="@{/static/front/js/theme.js}"></script>
+</body>
+</html>

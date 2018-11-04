@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="ZH_CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>杭州众兆科技有限公司</title>
+	<link rel="icon" type="image/x-icon" th:href="@{/static/front/media/logos/zz.jpg}" />
+
+	<link th:href="@{/static/front/css/master.css}" rel="stylesheet">
+
+	<link rel="stylesheet" id="switcher-css" type="text/css" th:href="@{/static/front/assets/switcher/css/switcher.css}" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color1.css}" title="color1" media="all"  />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color2.css}" title="color2" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color3.css}" title="color3" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color4.css}" title="color4" media="all" />
+	<link rel="alternate stylesheet" type="text/css" th:href="@{/static/front/assets/switcher/css/color5.css}" title="color5" media="all" data-default-color="true" />
+
+	<!--[if lt IE 9]>
+	<script th:src="@{/static/front/js/html5shiv.js}"></script>
+	<script th:src="@{/static/front/js/respond.min.js}"></script>
+	<![endif]-->
+</head>
+<body>
+<div id="page-preloader"><span class="spinner"></span></div>
+<div th:include="front/quote :: Ccolors"></div>
+<div th:include="front/quote :: header"></div>
+<div th:include="front/quote :: navbar"></div>
+
+<section class="status dark-bg dark-bg--status">
+	<div class="container wow slideInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
+		<div class="breadcumb">
+			<a href="/" class="breadcumb__page no-decoration">首页</a>
+			<span class="breadcumb__del no-decoration">&raquo;</span>
+			<a href="news" class="breadcumb__page no-decoration">论坛</a>
+		</div>
+		<h2 class="title title--page"><span class="title__bold">众兆产品</span> 论坛</h2>
+	</div>
+</section>
+
+<div class="blog-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9 col-sm-8 col-xs-7">
+				<div class="blog-main" >
+					<div class="articles" >
+						<div class="article"  >
+							<h1 th:text="${news.getStrNewsTitle()}"></h1>
+							<strong th:text="${news.getStrNewsDate()}"></strong>
+							<div class="article__img wow slideInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">
+								<img th:src="@{/static/front/media/news/{img}(img=${news.getStrNewsTag()})}" alt="blog" class="img-responsive" />
+							</div>
+							<div class="article__comments-author wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+								<span class="article__author" th:text="'作者：'+${news.getStrNewsAnthor()}"><span class="fa fa-user"></span></span>
+							</div>
+							<p th:text="${news.getStrNewsText()}"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div th:include="front/quote :: conus"></div>
+<div th:include="front/quote :: consultation"></div>
+<script th:src="@{/static/front/js/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/static/front/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/front/js/modernizr.custom.js}"></script>
+<script th:src="@{/static/front/assets/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/waypoints.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/static/front/js/classie.js}"></script>
+<script th:src="@{/static/front/assets/switcher/js/switcher.js}"></script>
+<script th:src="@{/static/front/assets/owl-carousel/owl.carousel.min.js}"></script>
+<script th:src="@{/static/front/assets/bxslider/jquery.bxslider.min.js}"></script>
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<script th:src="@{/static/front/assets/isotope/isotope.js}"></script>
+<script th:src="@{/static/front/assets/slider/jquery.ui-slider.js}"></script>
+<script th:src="@{/static/front/assets/fancybox/jquery.fancybox.pack.js}"></script>
+<script th:src="@{/static/front/js/jquery.smooth-scroll.js}"></script>
+<script th:src="@{/static/front/js/wow.min.js}"></script>
+<script th:src="@{/static/front/js/jquery.placeholder.min.js}"></script>
+<script th:src="@{/static/front/js/theme.js}"></script>
+</body>
+</html>

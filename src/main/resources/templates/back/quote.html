@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="ZH_CN">
+
+<!--导航栏-->
+<div th:fragment="navb">
+<div class="navbar navbar-fixed-top" >
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">众兆科技</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> 网站管理员 <i class="caret"></i>
+
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a tabindex="-1" href="#">Profile</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a tabindex="-1" href="login">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li class="active">
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">设置 <b class="caret"></b>
+
+                        </a>
+                        <ul class="dropdown-menu" id="menu1">
+                            <li>
+                                <a href="#">Tools <i class="icon-arrow-right"></i>
+
+                                </a>
+                                <ul class="dropdown-menu sub-menu">
+                                    <li>
+                                        <a href="#">Reports</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Logs</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Errors</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">SEO Settings</a>
+                            </li>
+                            <li>
+                                <a href="#">Other Link</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">Other Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Other Link</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">产品 <i class="caret"></i>
+
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a tabindex="-1" href="#">Blog</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="#">News</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="#">Custom Pages</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="#">Calendar</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a tabindex="-1" href="#">FAQ</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">案例&荣誉 <i class="caret"></i>
+
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a tabindex="-1" href="#">User List</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="#">Search</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" href="#">Permissions</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--/导航栏
+
+<!--侧边栏-->
+<div th:fragment="sideb">
+    <div class="span3" id="sidebar">
+        <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+            <li th:if="${#httpServletRequest.getRequestURI()}=='/admin'" th:attr="class='active'" >
+                <a href="admin"><i class="icon-chevron-right"></i> 首页</a>
+            </li>
+            <li th:unless="${#httpServletRequest.getRequestURI()}=='/admin'">
+                <a href="admin"><i class="icon-chevron-right"></i> 首页</a>
+            </li>
+
+
+
+
+            <li th:if="${#httpServletRequest.getRequestURI()}=='/list'" th:attr="class='active'">
+                <a href="list"><i class="icon-chevron-right"></i> 产品列表</a>
+            </li>
+            <li th:unless="${#httpServletRequest.getRequestURI()}=='/list'">
+                <a href="list"><i class="icon-chevron-right"></i> 产品列表</a>
+            </li>
+            <li>
+                <a href="buttons.html"><i class="icon-chevron-right"></i> Buttons & Icons</a>
+            </li>
+        </ul>
+    </div>
+    </div>
+<!--/侧边栏-->
+<!--页脚-->
+<footer th:fragment="foot">
+    <p>&copy;2016-2018 杭州<a href="http://www.zzvta.com/" target="_blank" title="众兆">众兆科技</a>后台管理系统
+</footer>
+<!--/页脚-->
+</html>
