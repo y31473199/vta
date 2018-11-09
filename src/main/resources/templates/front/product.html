@@ -89,7 +89,7 @@
 									<div class="item-cell js-cell equal-height-item" >
 										<div class="item-cell__top">
 											<div class="item-cell__img">
-												<img th:src="@{/static/front/media/products/{imgurl}(imgurl= ${prod.pro_image})}" class="img-responsive center-block" alt="item">
+												<img th:src="@{/static/front/media/products/{imgurl}(imgurl= ${prod.pro_image})}" class="img-responsive center-block" alt="item" th:width="405px"th:height="405px">
 											</div>
 											<div class="item-cell__actions">
 											</div>
@@ -114,7 +114,7 @@
 												<div class="item-cell js-cell equal-height-item" >
 													<div class="item-cell__top">
 														<div class="item-cell__img">
-															<img th:src="@{/static/front/media/products/{imgurl}(imgurl= ${prod.getStrProImage()})}" class="img-responsive center-block" alt="item">
+															<img th:src="@{/static/front/media/products/{imgurl}(imgurl= ${prod.getStrProImage()})}" class="img-responsive center-block" alt="item" th:width="405px"th:height="405px">
 														</div>
 														<div class="item-cell__actions">
 															<a href="#" class="add-to-cart"><span class="fa fa-shopping-cart"></span></a>
@@ -122,7 +122,7 @@
 														</div>
 													</div>
 													<div class="item-cell__bottom">
-														<h1 class="item-title"><a class="no-decoration" href="item.html" th:text="${prod.getStrProName()}" ></a></h1>
+														<h1 class="item-title"><a class="no-decoration" th:href="'item?modle='+${prod.getStrProModle()}" th:text="${prod.getStrProName()}" ></a></h1>
 														<div class="item-cell__info clearfix">
 															<div class="item-price pull-left" >产品星级：</div>
 															<div class="stars pull-right">
@@ -191,30 +191,32 @@
 									<a href="#" class="button button&#45;&#45;grey button&#45;&#45;main btn button&#45;&#45;active pull-right">排序</a>
 								</header>
 								<div class="items">
-													<div class="row">
-														<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s"   th:each="prod: ${productByT}">
-															<div class="item-cell js-cell equal-height-item" >
-																<div class="item-cell__top">
-																	<div class="item-cell__img">
-																		<img th:src="@{/static/front/media/products/{imgurl}(imgurl= ${prod.getStrProImage()})}" class="img-responsive center-block" alt="item">
-																	</div>
-																	<div class="item-cell__actions">
-																		<a href="#" class="add-to-cart"><span class="fa fa-shopping-cart"></span></a>
-																		<a href="#" class="see-detail"><span class="fa fa-search-plus"></span></a>
-																	</div>
-																</div>
-																<div class="item-cell__bottom">
-																	<h1 class="item-title"><a class="no-decoration" href="item.html" th:text="${prod.getStrProName()}" ></a></h1>
-																	<div class="item-cell__info clearfix">
-																		<div class="item-price pull-left" >产品星级：</div>
-																		<div class="stars pull-right">
-																			<span class="star" th:each="i:${#numbers.sequence(1,prod.getIntProStar())}"></span>
-																		</div>
-																	</div>
-																</div>
+
+										<div class="row">
+											<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s"   th:each="prod: ${productByT}">
+												<a th:href="'item?modle='+${prod.getStrProModle()}" >
+												<div class="item-cell js-cell equal-height-item" >
+													<div class="item-cell__top">
+														<div class="item-cell__img">
+															<img th:src="@{/static/front/media/products/{imgurl}(imgurl= ${prod.getStrProImage()})}" class="img-responsive center-block" alt="item" th:width="405px"th:height="405px">
+														</div>
+
+													</div>
+													<div class="item-cell__bottom">
+														<h1 class="item-title"><a class="no-decoration" th:href="'item?modle='+${prod.getStrProModle()}" th:text="${prod.getStrProName()}" ></a></h1>
+														<div class="item-cell__info clearfix">
+															<div class="item-price pull-left" >产品星级：</div>
+															<div class="stars pull-right">
+																<span class="star" th:each="i:${#numbers.sequence(1,prod.getIntProStar())}"></span>
 															</div>
 														</div>
 													</div>
+												</div>
+												</a>
+											</div>
+										</div>
+
+
 												</div>
 											</div>
 										</div>
