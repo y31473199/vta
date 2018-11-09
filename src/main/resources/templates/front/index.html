@@ -52,10 +52,11 @@
 <section class="anons">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-xs-12 wow zoomInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">
-				<div class="anons__block triangle triangle--block line-down">
-					<div class="anons__img">
-						<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+			<a href="/product">
+				<div class="col-md-4 col-xs-12 wow zoomInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">
+					<div class="anons__block triangle triangle--block line-down">
+						<div class="anons__img">
+							<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 	 width="50px" height="50px" viewBox="0 0 34.157 34.158" style="enable-background:new 0 0 34.157 34.158;"
 	 xml:space="preserve">
 							<g>
@@ -70,24 +71,28 @@
 									C23.117,24.472,23.922,25.277,23.922,26.267z"/>
 							</g>
 						</svg>
-					</div>
-					<h2><a href="product" class="title no-decoration"><span class="title__bold">汽教</span>商店</a></h2>
-					<p class="text">精选高性能，高质量产品</p>
-				</div>
-			</div>
-			<div class="col-md-4 col-xs-12 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
-				<div class="anons__block anons__block--center triangle triangle--block-center">
-					<div class="anons__photo"><img class="img-responsive" th:src="@{/static/front/media/370x180/news.jpg}" alt="news"></div>
-					<div class="anons__color-block">
-						<h2><a href="news" class="title no-decoration"><span class="title__bold">众兆</span>新闻</a></h2>
-						<p class="text">实时推送精彩新闻资讯</p>
+						</div>
+						<h2><a href="product" class="title no-decoration"><span class="title__bold">汽教</span>商店</a></h2>
+						<p class="text">精选高性能，高质量产品</p>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-4 col-xs-12 wow zoomInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
-				<div class="anons__block triangle triangle--block line-down">
-					<div class="anons__img anons__img--bike">
-						<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			</a>
+			<a href="news">
+				<div class="col-md-4 col-xs-12 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+					<div class="anons__block anons__block--center triangle triangle--block-center">
+						<div class="anons__photo"><img class="img-responsive" th:src="@{/static/front/media/370x180/news.jpg}" alt="news"></div>
+						<div class="anons__color-block">
+							<h2><a href="news" class="title no-decoration"><span class="title__bold">众兆</span>新闻</a></h2>
+							<p class="text">实时推送精彩新闻资讯</p>
+						</div>
+					</div>
+				</div>
+			</a>
+			<a href="http://wpa.qq.com/msgrd?v=1&uin=31473199&site=qq&menu=yes">
+				<div class="col-md-4 col-xs-12 wow zoomInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">
+					<div class="anons__block triangle triangle--block line-down">
+						<div class="anons__img anons__img--bike">
+							<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="90px" height="90px" viewBox="0 0 31.416 31.416" style="enable-background:new 0 0 31.416 31.416;"
 	 xml:space="preserve">
 							<g>
@@ -110,11 +115,12 @@
 								</g>
 							</g>
 						</svg>
+						</div>
+						<h2><a href="#" class="title no-decoration"><span class="title__bold">免费</span>咨询</a></h2>
+						<p class="text">提供一对一高效咨询通道</p>
 					</div>
-					<h2><a href="#" class="title no-decoration"><span class="title__bold">免费</span>咨询</a></h2>
-					<p class="text">提供一对一高效咨询通道</p>
 				</div>
-			</div>
+			</a>
 		</div>
 	</div>
 </section><!--anons-->
@@ -125,15 +131,16 @@
 		<h2 class="title title--main wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">专注高质量<span class="title__bold">高教</span>十余年<span class="line line--title"><span class="line__first"></span><span class="line__second"></span></span></h2>
 		<p class="text text--anons wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">杭州众兆科技有限公司是集开发设计、研制生产、销售服务为一体的现代化企业。 公司长期奉行“诚信、敬业、创新”的企业文化和“服务于高教”的经营理念，不断推出高科技产品，拓展市场，实现了企业跨越式发展。</p>
 		<div class="row">
-			<div class="col-sm-6 col-xs-12" th:each="case,cstat:${listC}" th:if="${cstat.index}<=2">
-
-				<div class="we-are__img wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s" th:if="${cstat.odd}"><img class="img-responsive" th:src="@{/static/front/media/case570x325/{img}(img=${case.getStrCaseImage()})}" alt="case"></div>
-				<div class="we-are__block triangle triangle--big wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="2.5s">
-					<h3 class="title title--block"><span class="title__bold" th:text="${case.getStrCaseTitle()}"></span></h3>
-					<p class="text" th:text="${case.getStrCaseDesc()}"></p>
-					<a href="comcase" class="btn button button--red button--main">更多案例</a>
-				</div>
-				<div class="we-are__img wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s" th:if="${cstat.even}"><img class="img-responsive" th:src="@{/static/front/media/case570x325/{img}(img=${case.getStrCaseImage()})}" alt="case"></div>
+			<div class="col-sm-6 col-xs-12" th:each="case,cstat:${listC}" th:if="${cstat.index}<=1">
+                <div th:if="${case.getIntCaseState()}==1">
+                    <div class="we-are__img wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s" th:if="${cstat.odd}"><img class="img-responsive" th:src="@{/static/front/media/case570x325/{img}(img=${case.getStrCaseImage()})}" alt="case"></div>
+                    <div class="we-are__block triangle triangle--big wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="2.5s">
+                        <h3 class="title title--block"><span class="title__bold" th:text="${case.getStrCaseTitle()}"></span></h3>
+                        <p class="text" th:text="${case.getStrCaseDesc()}"></p>
+                        <a href="comcase" class="btn button button--red button--main">更多案例</a>
+                    </div>
+                    <div class="we-are__img wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s" th:if="${cstat.even}"><img class="img-responsive" th:src="@{/static/front/media/case570x325/{img}(img=${case.getStrCaseImage()})}" alt="case"></div>
+                </div>
 			</div>
 		</div>
 	</div>
@@ -202,23 +209,25 @@
 	<div class="container">
 		<ul class="reviews-slider enable-bx-slider" data-auto="true" data-auto-hover="true" data-mode="horizontal" data-pager="false" data-pager-custom="null" data-prev-selector="null" data-next-selector="null">
 			<li th:each="listPro:${listP}">
-				<div class="review wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" >
-					<div class="row row--no-padding">
-						<div class="col-xs-3">
-							<div class="review__img">
-								<div class="review__quote triangle triangle--services">
-									<span class="fa-quote-left fa"></span>
-								</div>
-								<img class="img-responsive" th:src="@{/static/front/media/product250x200/{img}(img=${listPro.getStrProImage()})}" alt='bike'>
-							</div>
-						</div>
-						<div class="col-xs-9">
-							<div class="review__text">
-								<a th:href="product+${listPro.getIntProId()}" style="text-decoration: none;"><div class="review__main-text" th:text="${listPro.getStrProName()}"></div></a>
-								<div class="review__author" th:text="${listPro.getStrProDesc()}"></div>
-							</div>
-						</div>
-					</div>
+                <div th:if="${listPro.getIntProState()==1}">
+                    <div class="review wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" >
+                        <div class="row row--no-padding">
+                            <div class="col-xs-3">
+                                <div class="review__img">
+                                    <div class="review__quote triangle triangle--services">
+                                        <span class="fa-quote-left fa"></span>
+                                    </div>
+                                    <img class="img-responsive" th:src="@{/static/front/media/product250x200/{img}(img=${listPro.getStrProImage()})}" alt='bike'>
+                                </div>
+                            </div>
+                            <div class="col-xs-9">
+                                <div class="review__text">
+                                    <a th:href="'item?modle='+${listPro.getStrProModle()}" ><div class="review__main-text" th:text="${listPro.getStrProName()}"></div></a>
+                                    <div class="review__author" th:text="${listPro.getStrProDesc()}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 				</div>
 			</li>
 		</ul>
@@ -237,18 +246,20 @@
 		<p class="text text--anons wow slideInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">   杭州众兆科技有限公司是集开发设计、研制生产、销售服务为一体的现代化企业。 公司长期奉行“诚信、敬业、创新”的企业文化和“服务于高教”的经营理念，不断推出高科技产品，拓展市场，实现了企业跨越式发展。</p>
 		<div class="row isotope">
 			<div class="col-md-3 col-xs-6 isotope-item wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" th:each="listHon:${listH}"}>
-				<a href="product" class="listing-anons equal-height-item listing-anons--home triangle triangle--big line-down no-decoration">
-					<div class="listing-anons__img">
-						<img th:src="@{/static/front/media/honor270x230/{img}(img = ${listHon.getStrHonImage()})}" class="img-responsive" alt="bike" />
-					</div>
-					<div class="listing-anons__title">
-						<h4 class="name" th:text="${listHon.getStrHonDate()}"></h4>
-					</div>
-					<div class="listing-anons__hidden">
-						<h3 th:text="${listHon.getStrHonName()}"></h3>
-						<p th:text="${listHon.getStrHonTag()}"></p>
-					</div>
-				</a>
+                <div th:if="${listHon.getIntHonState()==1}">
+                    <a  class="listing-anons equal-height-item listing-anons--home triangle triangle--big line-down no-decoration">
+                        <div class="listing-anons__img">
+                            <img th:src="@{/static/front/media/honor270x230/{img}(img = ${listHon.getStrHonImage()})}" class="img-responsive" alt="bike" />
+                        </div>
+                        <div class="listing-anons__title">
+                            <h4 class="name" th:text="${listHon.getStrHonDate()}"></h4>
+                        </div>
+                        <div class="listing-anons__hidden">
+                            <h3 th:text="${listHon.getStrHonName()}"></h3>
+                            <p th:text="${listHon.getStrHonTag()}"></p>
+                        </div>
+                    </a>
+                </div>
 			</div>
 		</div>
 	</div>
@@ -268,19 +279,21 @@
 			<div class="col-lg-8 col-xs-12">
 				<div class="row row--no-padding">
 					<div class="col-sm-6 col-xs-12 wow zoomInDown" data-wow-delay="0.7s" data-wow-duration="1.5s" th:each="listNews:${listN}">
-						<a href="comcase" class="blog-anons no-decoration">
-							<div class="blog-anons__img">
-								<img th:src="@{/static/front/media/news575x250/{img}(img=${listNews.getStrNewsTag()})}" class="img-responsive" alt="bike" />
-							</div>
-							<div class="blog-anons__hidden triangle triangle--bigger">
-								<div class="blog-anons__text">
-									<h3 th:text="${listNews.getStrNewsTitle()}"></h3>
-									<div class="blog-anons__info">
-										<span th:text="${listNews.getStrNewsDate()}"></span>
-									</div>
-								</div>
-							</div>
-						</a>
+                        <div th:if="${listNews.getIntNewsState()==1}">
+                            <a href="news" class="blog-anons no-decoration">
+                                <div class="blog-anons__img">
+                                    <img th:src="@{/static/front/media/news575x250/{img}(img=${listNews.getStrNewsTag()})}" class="img-responsive" alt="bike" />
+                                </div>
+                                <div class="blog-anons__hidden triangle triangle--bigger">
+                                    <div class="blog-anons__text">
+                                        <h3 th:text="${listNews.getStrNewsTitle()}"></h3>
+                                        <div class="blog-anons__info">
+                                            <span th:text="${listNews.getStrNewsDate()}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
 					</div>
 				</div>
 			</div>

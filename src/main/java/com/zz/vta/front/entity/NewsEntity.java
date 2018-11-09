@@ -14,6 +14,7 @@ import java.util.Date;
 @Table(name = "news_")
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @ToString
 public class NewsEntity {
 
@@ -23,7 +24,7 @@ public class NewsEntity {
     private int id;
     //时间
     @Column(name = "news_date")
-    private Date news_date;
+    @NonNull private Date news_date;
     //标题
     @Column(name = "news_title")
     private String news_title;

@@ -125,18 +125,29 @@
             <li th:unless="${#httpServletRequest.getRequestURI()}=='/admin'">
                 <a href="admin"><i class="icon-chevron-right"></i> 首页</a>
             </li>
-
-
-
-
-            <li th:if="${#httpServletRequest.getRequestURI()}=='/list'" th:attr="class='active'">
+          <li th:if="${#httpServletRequest.getRequestURI()}=='/list'" class='active'>
                 <a href="list"><i class="icon-chevron-right"></i> 产品列表</a>
             </li>
-            <li th:unless="${#httpServletRequest.getRequestURI()}=='/list'">
+            <li th:unless="${#httpServletRequest.getRequestURI()}=='/list' ">
                 <a href="list"><i class="icon-chevron-right"></i> 产品列表</a>
             </li>
-            <li>
-                <a href="buttons.html"><i class="icon-chevron-right"></i> Buttons & Icons</a>
+            <li th:if="${#httpServletRequest.getRequestURI()}=='/newslist'" th:attr="class='active'">
+                <a href="/newslist"><i class="icon-chevron-right"></i> 新闻列表</a>
+            </li>
+            <li th:unless="${#httpServletRequest.getRequestURI()}=='/newslist'">
+                <a href="/newslist"><i class="icon-chevron-right"></i> 新闻列表</a>
+            </li>
+            <li th:if="${#httpServletRequest.getRequestURI()}=='/caselist'" th:attr="class='active'">
+                <a href="/caselist"><i class="icon-chevron-right"></i> 案例列表</a>
+            </li>
+            <li th:unless="${#httpServletRequest.getRequestURI()}=='/caselist'">
+                <a href="/caselist"><i class="icon-chevron-right"></i> 案例列表</a>
+            </li>
+            <li th:if="${#httpServletRequest.getRequestURI()}=='/honorlist'" th:attr="class='active'">
+                <a href="/advlist"><i class="icon-chevron-right"></i> 广告版列表</a>
+            </li>
+            <li th:unless="${#httpServletRequest.getRequestURI()}=='/honorlist'">
+                <a href="/advlist"><i class="icon-chevron-right"></i> 广告版列表</a>
             </li>
         </ul>
     </div>

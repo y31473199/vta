@@ -1,5 +1,6 @@
 package com.zz.vta.front.service;
 
+import com.sun.org.apache.xml.internal.resolver.helpers.PublicId;
 import com.zz.vta.front.db2map.AdvertisementMapper;
 import com.zz.vta.front.entity.AdvertisementEntity;
 import com.zz.vta.front.frontentity.AdvertisementShow;
@@ -37,4 +38,20 @@ public class AdvertisementService {
         }
         return listAD;
     }
+    /**
+     *添加广告版
+     */
+    public void addAdv(AdvertisementEntity entity,String img){
+            entity.setAd_image(img);
+        advertisementMapper.saveAndFlush(entity);
+    }
+    /**
+     * 删除广告版
+     */
+    public void delAdv(AdvertisementEntity entity,int state){
+        entity.setAd_state(state);
+        advertisementMapper.saveAndFlush(entity);
+    }
+
+
 }

@@ -7,66 +7,82 @@ import java.math.BigDecimal;
 /**
  * 前台商品实体类
  */
-@Builder
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @ToString
 public class ProductShow {
 
     //id
-    @NonNull private int intProId;
+    private int intProId;
 
     //名字
-    @NonNull private String strProName;
+    @Builder.Default
+    private String strProName;
 
     //类型
-    @NonNull int  strProType;
+    @Builder.Default
+    int  strProType;
 
+    @Builder.Default
     String proType;
 
     //规格
-    @NonNull private String strProSpec;
+    @Builder.Default
+    private String strProSpec;
 
     //材质
-    @NonNull private String strProMate;
+    @Builder.Default
+    private String strProMate;
 
     //颜色
-    @NonNull private String strProColor;
+    @Builder.Default
+    private String strProColor;
 
     //型号
-    @NonNull private String strProModle;
+    @Builder.Default
+    private String strProModle;
 
     //质量
-    @NonNull private Double douProWeigth;
+    @Builder.Default
+    private Double douProWeigth;
 
     //最低价格
+    @Builder.Default
     private BigDecimal bigProPrice;
 
     //市场价格
-    @NonNull private BigDecimal bigProMaprice;
+    @Builder.Default
+    private BigDecimal bigProMaprice;
 
     //理实一体
+    @Builder.Default
     private int intProReally;
 
     //描述
-    @NonNull private String strProDesc;
+    @Builder.Default
+    private String strProDesc;
 
     //参数
-    @NonNull private String strProPara;
+    @Builder.Default
+    private String strProPara;
 
     //自主开发
+    @Builder.Default
     private String strProSelfdev;
 
     //图片路径
-    @NonNull private String strProImage;
+    @Builder.Default
+    private String strProImage;
 
     //产品星级
-    @NonNull private int intProStar;
+    @Builder.Default
+    private int intProStar;
 
     //产品状态
-    @NonNull private int intProState;
+    @Builder.Default
+    private int intProState;
 
 
 }

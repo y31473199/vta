@@ -1,7 +1,9 @@
 package com.zz.vta.front.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,6 +15,8 @@ import java.util.Date;
 @Builder
 @Data
 @Table(name = "case_")
+@NoArgsConstructor
+@AllArgsConstructor
 public class CaseEntity {
 
     @Id

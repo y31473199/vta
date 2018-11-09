@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -60,4 +61,32 @@ public class CaseService {
         return caseShow;
     }
 
+
+    /**
+     * 添加案例
+     */
+    public void addCase(CaseEntity entity,String img,int id){
+        if (id==0){
+            entity.setCase_image(img);
+            if (entity.getCase_date()==null){
+                entity.setCase_date(new Date());
+            }
+            caseMapper.saveAndFlush(entity);
+        }else {
+            entity.setCase_image(img);
+            entity.setCase_id(id);
+            if (entity.getCase_date()==null){
+                entity.setCase_date(new Date());
+            }
+            caseMapper.saveAndFlush(entity);
+        }
+    }
+
+    /**
+     * 删除案例
+     */
+    public void delCase(CaseEntity entity,int state){
+            entity.setCase_state(state);
+            caseMapper.saveAndFlush(entity);
+    }
 }

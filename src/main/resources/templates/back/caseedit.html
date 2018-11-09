@@ -1,0 +1,254 @@
+<!DOCTYPE html> <html  xmlns:th="http://www.thymeleaf.org" lang="ZH_CN">
+
+<head>
+	<title>众兆官网后台管理系统</title>
+	<!-- Bootstrap -->
+	<link th:href="@{/static/back/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+	<link th:href="@{/static/back/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet" media="screen">
+	<link th:href="@{/static/back/assets/styles.css}" rel="stylesheet" media="screen">
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" th:src="@{/static/back/vendors/flot/excanvas.min.js}"></script><![endif]-->
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script th:src="@{/static/back/assets/html5.js}"</script>
+	<![endif]-->
+	<script th:src="@{/static/back/vendors/modernizr-2.6.2-respond-1.1.0.min.js}"></script>
+</head>
+
+<body>
+<div th:include="back/quote :: navb"></div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div th:include="back/quote :: sideb"></div>
+		<!--/span-->
+		<div class="span9" id="content">
+			<!-- morris stacked chart -->
+			<div class="row-fluid">
+				<!-- block -->
+				<div class="block">
+					<div class="navbar navbar-inner block-header">
+						<div class="muted pull-left">编辑案例</div>
+					</div>
+					<div class="block-content collapse in">
+						<div class="span12">
+							<form class="form-horizontal" action="/addcase" method="post" th:object="${entity}" enctype="multipart/form-data">
+								<input th:unless="${state}=='noedit '" type="hidden"  th:value="${ids}" name="ids" >
+								<fieldset>
+									<legend th:unless="${state}=='add'" th:text="${show.getStrCaseTitle()}"></legend>
+									<legend th:if="${state}=='add'" th:text="添加案例"></legend>
+									<div class="control-group" th:if="${state}=='edit'">
+										<label class="control-label" >案例标题:<span class="required">*</span>：</label>
+										<div class="controls">
+											<input class="input-xlarge focused" type="text" th:field="*{case_title}" >
+										</div>
+									</div>
+									<div class="control-group" th:if="${state}=='noedit'">
+										<label class="control-label">案例标题:</label>
+										<div class="controls">
+											<span class="input-xlarge uneditable-input" th:text="${show.getStrCaseTitle()}"></span>
+										</div>
+									</div>
+									<div class="control-group" th:if="${state}=='add'">
+										<label class="control-label">案例标题:</label>
+										<div class="controls">
+											<input class="input-xlarge focused"  type="text"  th:field="*{case_title}"  name="name"  >
+										</div>
+									</div>
+
+
+
+									<div class="control-group" th:if="${state}=='edit'">
+										<label class="control-label" >案例地点：</label>
+										<div class="controls">
+											<input class="input-xlarge focused" type="text"  th:field="*{case_place}"  >
+										</div>
+									</div>
+									<div class="control-group" th:if="${state}=='noedit'">
+										<label class="control-label">案例地点：</label>
+										<div class="controls">
+											<span class="input-xlarge uneditable-input" th:text="${show.getStrCasePlace()}"></span>
+										</div>
+									</div>
+									<div class="control-group" th:if="${state}=='add'">
+										<label class="control-label">案例地点：</label>
+										<div class="controls">
+											<input class="input-xlarge focused" type="text" th:field="*{case_place}" id="spec">
+										</div>
+									</div>
+
+									<div class="control-group" th:if="${state}=='noedit'">
+										<label class="control-label">描述：</label>
+										<div class="controls">
+											<textarea id="desc" class="input-xlarge textarea" th:text="${show.getStrCaseDesc()}"  style="width: 810px; height: 200px" disabled="disabled"></textarea>
+										</div>
+									</div>
+									<div class="control-group" th:if="${state}=='edit'">
+										<label class="control-label">描述：</label>
+										<div class="controls">
+											<textarea class="input-xlarge textarea"   style="width: 810px; height: 200px"  th:field="*{case_desc}" ></textarea>
+										</div>
+									</div>
+									<div class="control-group" th:if="${state}=='add'">
+										<label class="control-label">描述：</label>
+										<div class="controls">
+											<textarea class="input-xlarge textarea"  style="width: 810px; height: 200px"  th:field="*{case_desc}" ></textarea>
+										</div>
+									</div>
+
+									<div class="control-group" th:if="${state}=='noedit'">
+										<label class="control-label">内容：</label>
+										<div class="controls">
+											<textarea class="input-xlarge textarea" th:text="${show.getStrCaseText()}" style="width: 810px; height: 200px" disabled="disabled"></textarea>
+										</div>
+									</div>
+									<div class="control-group" th:if="${state}=='edit'">
+										<label class="control-label">内容：</label>
+										<div class="controls">
+											<textarea class="input-xlarge textarea"  th:field="*{case_text}"   style="width: 810px; height: 200px" ></textarea>
+										</div>
+									</div>
+									<div class="control-group" th:if="${state}=='add'">
+										<label class="control-label">内容：</label>
+										<div class="controls">
+											<textarea class="input-xlarge textarea"  style="width: 810px; height: 200px"  th:field="*{case_text}" ></textarea>
+										</div>
+									</div>
+
+
+									<div class="control-group" th:if="${state}=='edit'">
+										<label class="control-label" >案例状态：</label>
+										<div class="controls">
+											<label th:if="${show.getIntCaseState()==1}" th:field="*{case_state}">
+												<input  type="radio" name="state" value="1" checked="checked">展示
+												<input type="radio" name="state" value="0">不展示
+											</label>
+											<label th:unless="${show.getIntCaseState()==1}" th:field="*{case_state}">
+												<input  type="radio"  name="state" value="1">展示
+												<input type="radio"  name="state" value="0" checked="checked">不展示
+											</label>
+										</div>
+									</div>
+									<div class="control-group" th:if="${state}=='noedit'">
+										<label class="control-label" >状态：</label>
+										<div class="controls">
+											<label th:if="${show.getIntCaseState()==1}">
+												<input  type="radio"  name="state" disabled="" checked="checked">展示
+												<input  type="radio" name="state"  disabled="" >不展示
+											</label>
+											<label th:unless="${show.getIntCaseState()==1}">
+												<input  type="radio"  name="state" disabled="" >展示
+												<input type="radio"  name="state" disabled="" checked="checked">不展示
+											</label>
+										</div>
+									</div>
+
+									<div class="control-group" th:if="${state}=='add'">
+										<label class="control-label" >状态：</label>
+										<div class="controls">
+											<label th:field="*{case_state}">
+												<input  type="radio"  name="state" checked="checked"  >展示
+												<input  type="radio" name="state"   >不展示
+											</label>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" >案例图片：</label>
+										<div class="span3" >
+											<div th:unless="${state}=='add'">
+												<a class="thumbnail">
+													<img th:src="@{'/static/front/media/case570x325/'+${show.getStrCaseImage()}}" alt="图片显示错误" style="width: 340px; height: 140px;">
+												</a>
+											</div>
+											<div class="controls" th:if="${state}=='edit'">
+												<input name="img"  th:value="${show.getStrCaseImage()}" class="input-file uniform_on" type="file">
+												<input  type="hidden"  th:value="${show.getStrCaseImage()}" name="imge">
+											</div>
+											<div class="controls" th:if="${state}=='add'">
+												<input name="img"  class="input-file uniform_on" type="file"  >
+											</div>
+										</div>
+									</div>
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary" th:if="${state}=='add'"  onclick="javascript:return confirm('确认要提交？');">保存</button>
+										<button type="submit" class="btn btn-primary" th:if="${state}=='edit'" onclick="javascript:return confirm('确认要提交？');">修改</button>
+										<button type="reset" class="btn"  onclick="javascript:history.go(-1);">返回</button>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- /block -->
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div th:include="back/quote :: foot"></div>
+</div>
+<!--/.fluid-container-->
+<link th:href="@{/static/back/vendors/datepicker.css}" rel="stylesheet" media="screen">
+<link th:href="@{/static/back/vendors/uniform.default.css}" rel="stylesheet" media="screen">
+<link th:href="@{/static/back/vendors/chosen.min.css}" rel="stylesheet" media="screen">
+
+<link th:href="@{/static/back/vendors/wysiwyg/bootstrap-wysihtml5.css}" rel="stylesheet" media="screen">
+
+<script th:src="@{/static/back/vendors/jquery-1.9.1.js}"></script>
+<script th:src="@{/static/back/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/back/vendors/jquery.uniform.min.js}"></script>
+<script th:src="@{/static/back/vendors/chosen.jquery.min.js}"></script>
+<script th:src="@{/static/back/vendors/bootstrap-datepicker.js}"></script>
+
+<script th:src="@{/static/back/vendors/wysiwyg/wysihtml5-0.3.0.js}"></script>
+<script th:src="@{/static/back/vendors/wysiwyg/bootstrap-wysihtml5.js}"></script>
+
+<script th:src="@{/static/back/vendors/wizard/jquery.bootstrap.wizard.min.js}"></script>
+
+<script type="text/javascript" th:src="@{/static/back/vendors/jquery-validation/dist/jquery.validate.min.js}"></script>
+<script th:src="@{/static/back/assets/form-validation.js}"></script>
+
+<script th:src="@{/static/back/assets/scripts.js}"></script>
+<script>
+
+    function isem(){
+        if(confirm('确定?')==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    jQuery(document).ready(function() {
+        FormValidation.init();
+    });
+
+
+    $(function() {
+        $(".datepicker").datepicker();
+        $(".uniform_on").uniform();
+        $(".chzn-select").chosen();
+        $('.textarea').wysihtml5();
+
+        $('#rootwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
+                var $total = navigation.find('li').length;
+                var $current = index+1;
+                var $percent = ($current/$total) * 100;
+                $('#rootwizard').find('.bar').css({width:$percent+'%'});
+                // If it's the last tab then hide the last button and show the finish instead
+                if($current >= $total) {
+                    $('#rootwizard').find('.pager .next').hide();
+                    $('#rootwizard').find('.pager .finish').show();
+                    $('#rootwizard').find('.pager .finish').removeClass('disabled');
+                } else {
+                    $('#rootwizard').find('.pager .next').show();
+                    $('#rootwizard').find('.pager .finish').hide();
+                }
+            }});
+        $('#rootwizard .finish').click(function() {
+            alert('Finished!, Starting over!');
+            $('#rootwizard').find("a[href*='tab1']").trigger('click');
+        });
+    });
+</script>
+</body>
+
+</html>

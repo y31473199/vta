@@ -32,7 +32,6 @@
                                     <a href="admin">首页</a> <span class="divider">/</span>
                                 </li>
                                 <li class="active">官网概览</li>
-                                <span th:text="${#httpServletRequest.getRequestURI()}"></span>
                             </ul>
                         </div>
                     </div>
@@ -92,12 +91,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="pro,stat:${listp}" th:if="${stat.count}<=3">
+                                    <tr th:each="pro,stat:${listp}" th:if="${stat.count}<=3" >
                                         <td ><a href="#" th:text="${pro.getIntProId()}"></a></td>
                                         <td ><a href="#" th:text="${pro.getStrProName()}"></a></td>
                                         <td ><a href="#" th:text="${pro.getBigProMaprice()}"></a></td>
                                         <td th:if="${pro.getIntProState()==1}"><a href="#"  th:text="展示中"></a></td>
                                         <td th:unless="${pro.getIntProState()==1}"><a href="#" th:text="未展示"></a></td>
+                                        </div>
                                     </tr>
                                     </tbody>
                                 </table>

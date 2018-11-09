@@ -70,10 +70,8 @@ public class ResController {
     @RequestMapping("item")
     public ModelAndView goItem(HttpServletRequest request){
         ModelAndView mv = new ModelAndView();
-        int id = Integer.valueOf(request.getParameter("proId"));
+        mv.addObject("pro",productService.selectPro(request.getParameter("modle")));
         mv.addObject("types",typeService.getType());
-        mv.addObject("pro",productService.getPro(id));
-        mv.addObject("otherPro",productService.getProByType(id));
         mv.addObject("proList",productService.getProAll());
         mv.setViewName("front/item");
         return mv;

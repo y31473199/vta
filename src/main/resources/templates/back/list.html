@@ -58,8 +58,8 @@
                                                 <td class="center">
                                                     <a th:href="'edit?idn='+${prop.getIntProId()}"><button  class="btn "><i class="icon-info-sign icon-black"></i>查询</button></a>
                                                     <a th:href="'edit?ide='+${prop.getIntProId()}"><button  class="btn"><i class="icon-pencil icon-black"></i>修改</button></a>
-                                                    <a th:if="${prop.getIntProState()==1}" th:href="'edit?idr='+${prop.getIntProId()}"><button  class="btn"><i class="icon-remove icon-black"></i>不展示 </button></a>
-                                                    <a th:unless="${prop.getIntProState()==1}" th:href="'edit?idr='+${prop.getIntProId()}"><button  class="btn"><i class="icon-ok icon-black"></i>展示 </button></a>
+                                                    <a th:if="${prop.getIntProState()==1}" th:href="'edit?idr='+${prop.getIntProId()}+'&state=0'"><button  class="btn"><i class="icon-remove icon-black"></i>不展示 </button></a>
+                                                    <a th:unless="${prop.getIntProState()==1}" th:href="'edit?idr='+${prop.getIntProId()}+'&state=1'"><button  class="btn"><i class="icon-ok icon-black"></i>展示 </button></a>
                                                 </td>
                                             </tr>
                                         </tbody>

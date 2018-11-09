@@ -44,7 +44,7 @@
 		<div class="row">
 			<div class="col-md-9 col-sm-8 col-xs-7">
 				<div class="blog-main" >
-					<div class="articles" th:each="n:${page.getContent()}">
+					<div class="articles" th:each="n:${page.getContent()}"th:if="${n.news_state}==1">
 						<div class="article"  >
 							<div class="blog-date triangle triangle&#45;&#45;big wow slideInLeft" data-wow-delay="0.7s" data-wow-duration="1.5s">
 								<div class="blog-date__num">
@@ -83,33 +83,9 @@
 						<div class="categories">
 							<div class="categories__one" th:each="dateN:${date}">
 								<header class="categories__head clearfix">
-									<h5 class="pull-left" th:if="${dateN.getStrNewsDate()}!=${datane}" th:with="datane=${dateN.getStrNewsDate()}" th:text="${datane}"><a class="no-decoration" href="#"></a></h5>
+                                    <a class="no-decoration" href="#"><h5 class="pull-left" th:if="${dateN.getStrNewsDate()}!=${datane}" th:with="datane=${dateN.getStrNewsDate()}" th:text="${datane}"></h5></a>
 								</header>
-								<p class="categories__desc">产业最前沿消息</p>
 							</div>
-							<div class="categories__one">
-								<header class="categories__head clearfix">
-									<h5 class="pull-left"><a class="no-decoration" href="#"></a>自动化工业生产</h5>
-									<div class="categories__count pull-right">[5]</div>
-								</header>
-								<p class="categories__desc">产业最前沿消息</p>
-							</div>
-							<div class="categories__one">
-								<header class="categories__head clearfix">
-									<h5 class="pull-left"><a class="no-decoration" href="#">自动化工业生产</a></h5>
-									<div class="categories__count pull-right">[12]</div>
-								</header>
-								<p class="categories__desc">产业最前沿消息</p>
-							</div>
-							<div class="categories__one">
-								<header class="categories__head clearfix">
-									<h5 class="pull-left"><a class="no-decoration" href="#">自动化工业生产</a></h5>
-									<div class="categories__count pull-right">[3]</div>
-								</header>
-								<p class="categories__desc">产业最前沿消息</p>
-							</div>
-						</div>
-					</div>
 					<div class="blog-aside__block wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
 						<h3 class="blog-title">关于众兆新闻<span class="line line--title line--blog-title"><span class="line__first"></span><span class="line__second"></span></span></h3>
 						<div class="blog-aside__about">

@@ -46,11 +46,13 @@
 				<div class="blog-main">
 					<div class="articles">
 						<div class="article" th:each="case:${caselist}">
-							<div class="article__img wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
-								<img th:src="@{/static/front/media/case570x325/{img}(img=${case.getStrCaseImage()})}" alt="blog" class="img-responsive" />
+							<div th:if="${case.getIntCaseState()==1}">
+								<div class="article__img wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s">
+									<img th:src="@{/static/front/media/case570x325/{img}(img=${case.getStrCaseImage()})}" alt="blog" class="img-responsive" />
+								</div>
+								<a th:href="'comcase?caid='+${case.getIntCaseId()}"><h3 class="article-title wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" th:text="${case.getStrCaseTitle()}"> </h3></a>
+								<p class="blog-text blog-text--article wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s"th:text="${case.getStrCaseDesc()}"></p>
 							</div>
-							<a th:href="'comcase?caid='+${case.getIntCaseId()}"><h3 class="article-title wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" th:text="${case.getStrCaseTitle()}"> </h3></a>
-							<p class="blog-text blog-text--article wow slideInUp" data-wow-delay="0.7s" data-wow-duration="1.5s"th:text="${case.getStrCaseDesc()}"></p>
 						</div>
 					</div>
 				</div>

@@ -1,7 +1,9 @@
 package com.zz.vta.front.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -12,6 +14,8 @@ import javax.persistence.*;
 @Builder
 @Data
 @Table(name = "advertisement_")
+@AllArgsConstructor
+@NoArgsConstructor
 public class AdvertisementEntity {
 
     @Id

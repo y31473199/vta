@@ -201,50 +201,50 @@
 			<div class="row row--no-padding">
 				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="3s">
 					<div class="social-blocks__one social-blocks__one--fb">
-						<a href="#" class="social-blocks__logo">
+						<a href="http://wpa.qq.com/msgrd?v=1&uin=31473199&site=qq&menu=yes" class="social-blocks__logo">
 							<span class="fa fa-qq"></span>
 						</a>
-						<a href="#" class="social-blocks__action no-decoration"><在线咨></在线咨>询</a>
+						<a href="http://wpa.qq.com/msgrd?v=1&uin=31473199&site=qq&menu=yes" class="social-blocks__action no-decoration">在线咨询</a>
 					</div>
 				</div>
 				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="2s">
 					<div class="social-blocks__one social-blocks__one--twitter">
-						<a href="#" class="social-blocks__logo">
+						<a href="mailto:31473199@qq.com" class="social-blocks__logo">
 							<span class="fa fa-envelope"></span>
 						</a>
-						<a href="#" class="social-blocks__action no-decoration">发送邮件</a>
+						<a href="mailto:31473199@qq.com"  class="social-blocks__action no-decoration">发送邮件</a>
 					</div>
 				</div>
 				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1s">
 					<div class="social-blocks__one social-blocks__one--google">
-						<a href="#" class="social-blocks__logo">
+						<a onclick="alert('此功能正在全力开发，您可以点击上面的联系方式联系我么们')" class="social-blocks__logo">
 							<span class="fa fa-comments"></span>
 						</a>
-						<a href="#" class="social-blocks__action no-decoration">微信</a>
+						<a onclick="alert('此功能正在全力开发，您可以点击上面的联系方式联系我么们')" class="social-blocks__action no-decoration">微信</a>
 					</div>
 				</div>
 				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1s">
 					<div class="social-blocks__one social-blocks__one--vimeo">
-						<a href="#" class="social-blocks__logo">
+						<a href="tel:13456720721"  class="social-blocks__logo">
 							<span class="fa fa-phone"></span>
 						</a>
-						<a href="#" class="social-blocks__action no-decoration">电话</a>
+						<a href="tel:13456720721" class="social-blocks__action no-decoration">电话</a>
 					</div>
 				</div>
 				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="2s">
 					<div class="social-blocks__one social-blocks__one--rss">
-						<a href="#" class="social-blocks__logo">
+						<a href="http://weiwei52.com/" class="social-blocks__logo">
 							<span class="fa fa-rss"></span>
 						</a>
-						<a href="#" class="social-blocks__action no-decoration">博客</a>
+						<a href="http://weiwei52.com/" class="social-blocks__action no-decoration">博客</a>
 					</div>
 				</div>
 				<div class="col-sm-2 col-xs-4 wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="3s">
 					<div class="social-blocks__one social-blocks__one--p">
-						<a href="#" class="social-blocks__logo">
+						<a onclick="alert('您的浏览器暂不支持，请按下Ctrl+D收藏本站')" class="social-blocks__logo">
 							<span class="fa fa-heart-o"></span>
 						</a>
-						<a href="#" class="social-blocks__action no-decoration">收藏众兆</a>
+						<a onclick="alert('您的浏览器暂不支持，请按下Ctrl+D收藏本站')"  class="social-blocks__action no-decoration">收藏众兆</a>
 					</div>
 				</div>
 			</div>
@@ -258,41 +258,45 @@
 		<p class="text text--anons wow slideInRight" data-wow-delay="0.7s" data-wow-duration="1.5s">精选优质商品，为您挑选最佳方案。</p>
 		<div class="js-personal-slider enable-owl-carousel" data-auto-play="5000" data-stop-on-hover="true" data-items="2" data-pagination="false" data-navigation="true" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-tablet-small="2" >
 			<div class="slider-item wow zoomInUp" data-wow-delay="0.7s" data-wow-duration="1.5s" th:each="proSt:${list}" th:if="${proSt.getIntProStar()}>3">
-				<div class="worker triangle line-down triangle--big" >
-					<div class="worker__photo">
-						<img th:src="@{/static/front/media/persons/{img}(img=${proSt.getStrProImage()})}" alt="person" class="img-responsive" />
-					</div>
-					<div class="worker__info">
-						<h2 th:text="${proSt.getStrProName()}"></h2>
-						<p  th:text="'材质:'+${proSt.getStrProMate()}"></p>
-						<div class="item-cell__info clearfix">
-							<div class="item-price pull-right" >星级：
-								<div class="stars pull-right">
-								<span class="star" th:each="i:${#numbers.sequence(1,proSt.getIntProStar())}"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="woker-hidden">
-						<div class="woker-hidden__social">
-							<div class="social social--footer social--footer-home clearfix">
-								<a href="#" class="social__one square">
-									<span class="fa fa-comments"></span>
-								</a>
-								<a href="#" class="social__one square">
-									<span class="fa fa-qq"></span>
-								</a>
-								<a href="#" class="social__one square">
-									<span class="fa fa-phone"></span>
-								</a>
+				<div th:if="${proSt.getIntProState()==1}">
+					<a >
+						<div class="worker triangle line-down triangle--big" >
+							<div class="worker__photo">
+								<img th:src="@{/static/front/media/persons/{img}(img=${proSt.getStrProImage()})}" alt="person" class="img-responsive" />
 							</div>
 							<div class="worker__info">
 								<h2 th:text="${proSt.getStrProName()}"></h2>
-								<p  th:text="${proSt.getStrProModle()}"></p>
-								<p >Phone: 15549400212</p>
+								<p  th:text="'材质:'+${proSt.getStrProMate()}"></p>
+								<div class="item-cell__info clearfix">
+									<div class="item-price pull-right" >星级：
+										<div class="stars pull-right">
+											<span class="star" th:each="i:${#numbers.sequence(1,proSt.getIntProStar())}"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="woker-hidden">
+								<div class="woker-hidden__social">
+									<div class="social social--footer social--footer-home clearfix">
+										<a href="#" class="social__one square">
+											<span class="fa fa-comments"></span>
+										</a>
+										<a href="#" class="social__one square">
+											<span class="fa fa-qq"></span>
+										</a>
+										<a href="#" class="social__one square">
+											<span class="fa fa-phone"></span>
+										</a>
+									</div>
+									<div class="worker__info">
+										<h2 th:text="${proSt.getStrProName()}"></h2>
+										<p  th:text="${proSt.getStrProModle()}"></p>
+										<p >Phone: 15549400212</p>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
+					</a>
 				</div>
 			</div>
 		</div>

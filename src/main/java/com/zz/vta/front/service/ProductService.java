@@ -12,6 +12,7 @@ package com.zz.vta.front.service;
         import org.springframework.stereotype.Service;
         import org.springframework.transaction.annotation.Transactional;
 
+        import java.math.BigDecimal;
         import java.util.ArrayList;
         import java.util.List;
 
@@ -46,8 +47,64 @@ public class ProductService {
 
         for (int i = 0;i<list.size();i++){
             ProductEntity proE = list.get(i);
-            ProductShow show = new ProductShow(proE.getId(),proE.getPro_name(),proE.getPro_type_id(),proE.getPro_spec(),proE.getPro_mate(),proE.getPro_color(),proE.getPro_modle(),proE.getPro_weigth(),proE.getPro_maprice(),
-                    proE.getPro_desc(),proE.getPro_para(),proE.getPro_image(),proE.getPro_star(),proE.getPro_state());
+            ProductShow show = new ProductShow();
+            TypeEntity proT = typeMapper.getProType(proE.getPro_type_id());
+            if (proE.getPro_name()==""||proE.getPro_name()==null){
+                show.setStrProName("名称未填写");
+            }else {
+                show.setStrProName(proE.getPro_name());
+            }if (proE.getPro_color()==""||proE.getPro_color()==null){
+                show.setStrProColor("未填写");
+            }else {
+                show.setStrProColor(proE.getPro_color());
+            }if (proE.getPro_desc()==""||proE.getPro_desc()==null){
+                show.setStrProDesc("颜色未填写");
+            }else {
+                show.setStrProDesc(proE.getPro_desc());
+            }if (proE.getPro_image()==""||proE.getPro_image()==null){
+                show.setStrProImage("未填写");
+            }else {
+                show.setStrProImage(proE.getPro_image());
+            }if (proE.getPro_mate()==""||proE.getPro_mate()==null){
+                show.setStrProMate("未填写");
+            }else {
+                show.setStrProMate(proE.getPro_mate());
+            }if (proE.getPro_modle()==""||proE.getPro_modle()==null){
+                show.setStrProModle("未填写");
+            }else {
+                show.setStrProModle(proE.getPro_modle());
+            }if (proE.getPro_para()==""||proE.getPro_para()==null){
+                show.setStrProModle("未填写");
+            }else {
+                show.setStrProModle(proE.getPro_modle());
+            }if (proE.getPro_spec()==""||proE.getPro_spec()==null){
+                show.setStrProSpec("未填写");
+            }else {
+                show.setStrProSpec(proE.getPro_spec());
+            }if (proE.getPro_maprice()==null){
+                show.setBigProMaprice(new BigDecimal(0));
+            }else {
+                show.setBigProMaprice(proE.getPro_maprice());
+            }if (proE.getPro_price()==null){
+                show.setBigProPrice(new BigDecimal(0));
+            }else {
+                show.setBigProPrice(proE.getPro_price());
+            }if (proE.getPro_weigth()==null){
+                show.setDouProWeigth(0.0);
+            }else {
+                show.setDouProWeigth(proE.getPro_weigth());
+            }if (proE.getPro_para()==""||proE.getPro_para()==null){
+                show.setStrProPara("未填写");
+            }else {
+                show.setStrProPara(proE.getPro_para());
+            }
+            show.setIntProId(proE.getId());
+            show.setIntProReally(proE.getPro_really());
+            show.setIntProState(proE.getPro_state());
+            show.setIntProStar(proE.getPro_star());
+            show.setStrProSelfdev(String.valueOf(proE.getPro_selfdev()));
+            /*ProductShow show = new ProductShow(proE.getId(),proE.getPro_name(),proE.getPro_type_id(),proT.getTy_name(),proE.getPro_spec(),proE.getPro_mate(),proE.getPro_color(),proE.getPro_modle(),proE.getPro_weigth(),proE.getPro_price(),proE.getPro_maprice(),
+                    proE.getPro_really(),proE.getPro_desc(),proE.getPro_para(),String.valueOf(proE.getPro_selfdev()), proE.getPro_image(),proE.getPro_star(),proE.getPro_state());*/
             listShow.add(show);
         }
         return listShow;
@@ -59,9 +116,64 @@ public class ProductService {
     public ProductShow getPro(int id){
         ProductEntity proE =  productMapper.findById(id).get();
         TypeEntity proT = typeMapper.getProType(proE.getPro_type_id());
-        ProductShow show = new ProductShow(proE.getId(),proE.getPro_name(),proE.getPro_type_id(),proE.getPro_spec(),proE.getPro_mate(),proE.getPro_color(),proE.getPro_modle(),proE.getPro_weigth(),proE.getPro_maprice(),
-                proE.getPro_desc(),proE.getPro_para(),proE.getPro_image(),proE.getPro_star(),proE.getPro_state());
+        ProductShow show = new ProductShow();
+        if (proE.getPro_name()==""||proE.getPro_name()==null){
+            show.setStrProName("名称未填写");
+        }else {
+            show.setStrProName(proE.getPro_name());
+        }if (proE.getPro_color()==""||proE.getPro_color()==null){
+            show.setStrProColor("未填写");
+        }else {
+            show.setStrProColor(proE.getPro_color());
+        }if (proE.getPro_desc()==""||proE.getPro_desc()==null){
+            show.setStrProDesc("颜色未填写");
+        }else {
+            show.setStrProDesc(proE.getPro_desc());
+        }if (proE.getPro_image()==""||proE.getPro_image()==null){
+            show.setStrProImage("未填写");
+        }else {
+            show.setStrProImage(proE.getPro_image());
+        }if (proE.getPro_mate()==""||proE.getPro_mate()==null){
+            show.setStrProMate("未填写");
+        }else {
+            show.setStrProMate(proE.getPro_mate());
+        }if (proE.getPro_modle()==""||proE.getPro_modle()==null){
+            show.setStrProModle("未填写");
+        }else {
+            show.setStrProModle(proE.getPro_modle());
+        }if (proE.getPro_para()==""||proE.getPro_para()==null){
+            show.setStrProModle("未填写");
+        }else {
+            show.setStrProModle(proE.getPro_modle());
+        }if (proE.getPro_spec()==""||proE.getPro_spec()==null){
+            show.setStrProSpec("未填写");
+        }else {
+            show.setStrProSpec(proE.getPro_spec());
+        }if (proE.getPro_maprice()==null){
+            show.setBigProMaprice(new BigDecimal(0));
+        }else {
+            show.setBigProMaprice(proE.getPro_maprice());
+        }if (proE.getPro_price()==null){
+            show.setBigProPrice(new BigDecimal(0));
+        }else {
+            show.setBigProPrice(proE.getPro_price());
+        }if (proE.getPro_para()==""||proE.getPro_para()==null){
+            show.setStrProPara("未填写");
+        }else {
+            show.setStrProPara(proE.getPro_para());
+        }if (proE.getPro_weigth()==null){
+            show.setDouProWeigth(0.0);
+        }else {
+            show.setDouProWeigth(proE.getPro_weigth());
+        }
+        show.setIntProId(proE.getId());
+        show.setIntProReally(proE.getPro_really());
+        show.setIntProState(proE.getPro_state());
+        show.setIntProStar(proE.getPro_star());
+        show.setStrProSelfdev(String.valueOf(proE.getPro_selfdev()));
         show.setProType(proT.getTy_name());
+            /*ProductShow show = new ProductShow(proE.getId(),proE.getPro_name(),proE.getPro_type_id(),proT.getTy_name(),proE.getPro_spec(),proE.getPro_mate(),proE.getPro_color(),proE.getPro_modle(),proE.getPro_weigth(),proE.getPro_price(),proE.getPro_maprice(),
+                    proE.getPro_really(),proE.getPro_desc(),proE.getPro_para(),String.valueOf(proE.getPro_selfdev()), proE.getPro_image(),proE.getPro_star(),proE.getPro_state());*/
         return show;
     }
 
@@ -71,9 +183,10 @@ public class ProductService {
     public List<ProductShow> getProByType(int id){
         List<ProductEntity> list =  productMapper.getProByType(id);
         List<ProductShow> listShow = new ArrayList();
+        TypeEntity proT = typeMapper.getProType(id);
         for (int i = 0;i<list.size();i++){
-            ProductShow show = new ProductShow(list.get(i).getId(),list.get(i).getPro_name(),list.get(i).getPro_type_id(),list.get(i).getPro_spec(),list.get(i).getPro_mate(),list.get(i).getPro_color(),list.get(i).getPro_modle(),list.get(i).getPro_weigth(),list.get(i).getPro_maprice(),
-                    list.get(i).getPro_desc(),list.get(i).getPro_para(),list.get(i).getPro_image(),list.get(i).getPro_star(),list.get(i).getPro_state());
+            ProductShow show = new ProductShow(list.get(i).getId(),list.get(i).getPro_name(),list.get(i).getPro_type_id(),proT.getTy_name(),list.get(i).getPro_spec(),list.get(i).getPro_mate(),list.get(i).getPro_color(),list.get(i).getPro_modle(),list.get(i).getPro_weigth(),list.get(i).getPro_price(),list.get(i).getPro_maprice(),
+                    list.get(i).getPro_really(),list.get(i).getPro_desc(),list.get(i).getPro_para(),String.valueOf(list.get(i).getPro_selfdev()), list.get(i).getPro_image(),list.get(i).getPro_star(),list.get(i).getPro_state());
             listShow.add(show);
         }
         return listShow;
@@ -82,16 +195,36 @@ public class ProductService {
     /**
      * 通过id删除产品
      */
-    public Boolean deletePro(int id){
-        productMapper.deleteById(id);
-        return !productMapper.existsById(id);
+    public boolean deletePro(int id,int state){
+        ProductEntity proE =  productMapper.findById(id).get();
+        TypeEntity proT = typeMapper.getProType(proE.getPro_type_id());
+        proE.setPro_state(state);
+        productMapper.saveAndFlush(proE);
+            /*ProductShow show = new ProductShow(proE.getId(),proE.getPro_name(),proE.getPro_type_id(),proT.getTy_name(),proE.getPro_spec(),proE.getPro_mate(),proE.getPro_color(),proE.getPro_modle(),proE.getPro_weigth(),proE.getPro_price(),proE.getPro_maprice(),
+                    proE.getPro_really(),proE.getPro_desc(),proE.getPro_para(),String.valueOf(proE.getPro_selfdev()), proE.getPro_image(),proE.getPro_star(),proE.getPro_state());*/
+        return true;
     }
+
 
     /**
      * 添加产品
      */
-    public ProductEntity addPro(ProductEntity entity){
-       return productMapper.saveAndFlush(entity);
+    public ProductEntity addPro(ProductEntity entity,String imgUrl,int id){
+        if (id==0){
+            entity.setPro_image(imgUrl);
+            return productMapper.saveAndFlush(entity);
+        }else {
+            entity.setPro_image(imgUrl);
+            entity.setId(id);
+            return productMapper.saveAndFlush(entity);
+        }
+    }
+
+    /**
+     * 根据型号查询产品
+     */
+    public ProductEntity selectPro(String modle){
+        return productMapper.getProByModle(modle);
     }
 
 

@@ -27,7 +27,7 @@ public class NewsShow {
     //标签
     private String strNewsTag;
 
-    //状态
+    //getIntNewsState
     private int intNewsState;
 
 
